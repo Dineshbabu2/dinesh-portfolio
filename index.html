@@ -87,6 +87,7 @@
       margin-top: 30px;
     }
     .project-card {
+      position: relative;
       background: #007bff;
       color: white;
       width: 280px;
@@ -94,6 +95,7 @@
       padding: 20px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.25);
       transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
     .project-card:hover {
       transform: translateY(-8px);
@@ -112,6 +114,30 @@
     .project-role {
       font-size: 0.95rem;
       opacity: 0.85;
+    }
+
+    /* Tooltip for project details */
+    .tooltip {
+      visibility: hidden;
+      background-color: rgba(0,0,0,0.85);
+      color: #fff;
+      text-align: left;
+      border-radius: 8px;
+      padding: 15px;
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .project-card:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
     }
 
     /* Skills */
@@ -202,31 +228,81 @@
           <div class="project-number">Project #1</div>
           <div class="project-title">48V & 72V Battery Management System – EV Application</div>
           <div class="project-role">Role: Project lead</div>
+          <div class="tooltip">
+            Designed a safety-focused BMS for 16S, and 20S NMC/LFP battery packs with OCV and 
+            Coulomb Counting-based SoC, SoH, cell balancing, and temperature measurement. 
+            Implemented fault handling for OV, UV, OTP, and OCP. Developed SPI-based daisy-chain 
+            communication for slave boards and enabled multi-protocol support including CAN, LIN, 
+            UART, and SPI. Designed the BMS controller in compliance with ASIL-D and ISO 26262 
+            standards. Integrated UART-based bootloader programming with a custom Python GUI for 
+            firmware updates.
+          </div>
         </div>
+
         <div class="project-card">
           <div class="project-number">Project #2</div>
           <div class="project-title">24V & 48V Battery Management System - Robotics Application</div>
           <div class="project-role">Role: Project lead</div>
+          <div class="tooltip">
+            Designed a safety-focused BMS for 8S and 16S NMC/LFP battery packs with OCV and Coulomb 
+            Counting-based SoC, SoH, cell balancing, and temperature measurement. Implemented fault 
+            handling for OV, UV, OTP, and OCP.
+          </div>
         </div>
+
         <div class="project-card">
           <div class="project-number">Project #3</div>
           <div class="project-title">1kW & 3kW BLDC Motor Controller – EV Application</div>
           <div class="project-role">Role: Project lead</div>
+          <div class="tooltip">
+            Designed and developed a bare-metal 1kW BLDC motor controller for electric mobility 
+            applications, implementing HAL-based sensored control using trapezoidal and FOC methods 
+            for efficient and reliable operation. Optimized PWM and commutation strategies to ensure 
+            smooth performance across varying loads, integrating protection features such as 
+            overcurrent, overtemperature, and undervoltage handling. Developed a UART-based interface 
+            for diagnostics and control and led testing and validation through load simulations and 
+            real-time monitoring tools. Supported multiple e-bike riding modes including Throttle, 
+            Cruise, Power, and Pedal Assist (PAS). Implemented CAN communication between the MCU, BMS, 
+            and VCU for seamless EV integration.
+          </div>
         </div>
+
         <div class="project-card">
           <div class="project-number">Project #4</div>
           <div class="project-title">250W BLDC Motor Controller</div>
           <div class="project-role">Role: Project lead</div>
+          <div class="tooltip">
+            The 36V DC driver powers and controls low-voltage BLDC hub motors commonly used in 
+            e-bikes for their efficiency and reliability. Sensored Field-Oriented Control (FOC) and 
+            Trapezoidal BLDC algorithms are key motor control techniques that optimize power delivery 
+            and enhance motor performance in e-bikes.
+          </div>
         </div>
+
         <div class="project-card">
           <div class="project-number">Project #5</div>
           <div class="project-title">Low and High Voltage BLDC Ceiling Fan</div>
           <div class="project-role">Role: Firmware Engineer</div>
+          <div class="tooltip">
+            Designed a low-cost 24V PMSM drive powered by a 230V AC driver using single, two, and 
+            three-shunt current control with FOC algorithm. Implemented field weakening, MPPT, and 
+            three-layer PI loops for smooth and efficient operation. Added high current injection for 
+            startup, NEC IR control, and BLE/Wi-Fi (Modbus) for remote speed management. Enabled BLDC 
+            speed control via capacitor-type fan regulators with step change and position detection, 
+            overcoming fixed SMPS voltage limitations. Developed a high-voltage ceiling fan system using 
+            a 90–440V AC driver to run sensored and sensorless HV-BLDC motors with single-shunt control. 
+            Delivered high-performance, cost-effective solutions for the Indian market.
+          </div>
         </div>
+
         <div class="project-card">
           <div class="project-number">Project #6</div>
           <div class="project-title">Door Open Timer</div>
           <div class="project-role">Role: Firmware Engineer</div>
+          <div class="tooltip">
+            Developed a 24V DC device to control elevator door opening within a set time after floor
+            arrival. Designed as a backup to activate the door if the main lift control board fails.
+          </div>
         </div>
       </div>
     </section>
@@ -249,6 +325,7 @@
   </div>
 </body>
 </html>
+
 
 
 
