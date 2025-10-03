@@ -193,6 +193,41 @@
       border-radius: 50%;
       display: inline-block;
     }
+
+    /* Additional Skills Section */
+    #skills-detailed {
+      background-color: #f0f0f0;
+      color: #333;
+      text-align: left;
+      padding: 60px 10%;
+    }
+
+    #skills-detailed h1 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 30px;
+    }
+
+    .skills-section {
+      margin-bottom: 40px;
+    }
+
+    .skills-section h2 {
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .skills-section p, .skills-section li {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .skills-section ul {
+      list-style: disc inside;
+      margin-left: 0;
+      padding-left: 15px;
+    }
+
   </style>
 </head>
 <body>
@@ -279,7 +314,7 @@
           <div class="project-title">1kW & 3kW BLDC Motor Controller – EV</div>
           <div class="project-role">Role: Project lead</div>
           <div class="tooltip">
-            Bare-metal 1kW BLDC motor controller using HAL, sensored control, FOC & trapezoidal. Optimized PWM & commutation. UART diagnostics & CAN communication with BMS & VCU. E-bike modes: Throttle, Cruise, Power, PAS.
+            Bare-metal BLDC motor controller, HAL-based sensored control, FOC & trapezoidal, optimized PWM, overcurrent, overtemperature, undervoltage protections. UART diagnostics & CAN for BMS/VCU.
           </div>
         </div>
 
@@ -289,7 +324,7 @@
           <div class="project-title">250W BLDC Motor Controller</div>
           <div class="project-role">Role: Project lead</div>
           <div class="tooltip">
-            36V DC driver for BLDC hub motors. Sensored FOC & Trapezoidal BLDC control for efficient e-bike operation.
+            36V DC driver for e-bikes, sensored FOC & trapezoidal algorithms, optimized for efficiency & reliability.
           </div>
         </div>
 
@@ -323,7 +358,7 @@
         <div class="skill-card">
           <h2><span class="skill-icon"></span> Embedded C & Low-Level Firmware</h2>
           <ul>
-            <li>Bare-metal & RTOS-based firmware for 8/16/32-bit MCUs</li>
+            <li>Bare-metal & RTOS firmware for 8/16/32-bit MCUs</li>
             <li>Low-level driver development</li>
           </ul>
         </div>
@@ -348,7 +383,7 @@
         <div class="skill-card">
           <h2><span class="skill-icon"></span> Algorithm Implementation</h2>
           <ul>
-            <li>Sensorless/sensored BLDC, FOC, trapezoidal control</li>
+            <li>Sensorless/sensored BLDC, FOC, trapezoidal</li>
             <li>Field weakening, MPPT, PI loops, SoC/SoH, fault detection</li>
           </ul>
         </div>
@@ -375,9 +410,71 @@
       </div>
     </section>
 
+    <!-- Detailed Skills Section -->
+    <section id="skills-detailed" class="slide">
+      <h1>Detailed Skills</h1>
+
+      <div class="skills-section">
+        <h2>Core Embedded Systems Skills</h2>
+        <ul>
+          <li>Embedded C & Low-Level Firmware Development: Strong experience in bare-metal and RTOS-based firmware for 8/16/32-bit microcontrollers and microprocessors.</li>
+          <li>RTOS & Task Management: FreeRTOS/RTOS task scheduling, inter-task communication, synchronization, and real-time debugging.</li>
+          <li>Hardware Bring-up & Board-Level Debugging: Hands-on testing with oscilloscopes, digital multimeters, DC power supplies, electronic loads, and function generators.</li>
+          <li>Algorithm Implementation: Sensorless/sensored BLDC, FOC, trapezoidal control, field weakening, MPPT, PI control loops, SoC/SoH calculation, fault detection.</li>
+        </ul>
+      </div>
+
+      <div class="skills-section">
+        <h2>Motor Control & Power Electronics</h2>
+        <ul>
+          <li>Motor Types: BLDC, PMSM, low/high voltage DC motors.</li>
+          <li>Motor Control Techniques: FOC, trapezoidal, sensored & sensorless control, PWM optimization, commutation strategies.</li>
+          <li>Control Features: Overcurrent, overvoltage, undervoltage, overtemperature protections, smooth startup, speed/torque regulation, smart speed control.</li>
+          <li>EV Applications: PMSM drives, BLDC controllers, servo motor drives, e-bike & robotics applications.</li>
+        </ul>
+      </div>
+
+      <div class="skills-section">
+        <h2>Battery Management Systems (BMS)</h2>
+        <ul>
+          <li>Battery Expertise: 8S, 16S, 20S NMC/LFP battery packs, CC-CV charging, cell balancing, OCV/SoC/SoH monitoring, temperature management.</li>
+          <li>Protocols & Communication: SPI (daisy-chain), UART, CAN, LIN, BLE, Wi-Fi for BMS & MCU interfacing.</li>
+          <li>Standards Compliance: ASIL-D, ISO 26262 for functional safety in automotive/EV applications.</li>
+          <li>Firmware Features: Fault handling (OV, UV, OTP, OCP), bootloader programming, GUI-based firmware updates.</li>
+        </ul>
+      </div>
+
+      <div class="skills-section">
+        <h2>Communication Protocols & Interfaces</h2>
+        <ul>
+          <li>Serial Interfaces: UART, SPI, I2C, CAN, LIN.</li>
+          <li>Wireless & IoT Interfaces: BLE, Wi-Fi, Modbus integration.</li>
+          <li>Peripheral Integration: Sensor interfaces, MCU-to-MCU communication, VCU interfacing.</li>
+        </ul>
+      </div>
+
+      <div class="skills-section">
+        <h2>Software Tools & Development</h2>
+        <ul>
+          <li>Programming Languages: Embedded C, Python (for GUI and testing).</li>
+          <li>Development Tools: IDEs, emulators, debuggers, data loggers, GUI tools for validation and performance monitoring.</li>
+          <li>Project Management: Jira for sprint planning, task management, and project tracking.</li>
+        </ul>
+      </div>
+
+      <div class="skills-section">
+        <h2>Testing & Validation</h2>
+        <ul>
+          <li>Hardware-in-the-loop testing, load simulation, real-time monitoring, data logging, algorithm validation, and performance optimization.</li>
+        </ul>
+      </div>
+
+    </section>
+
   </div>
 </body>
 </html>
+
 
 
 
