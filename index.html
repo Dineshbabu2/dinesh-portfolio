@@ -54,18 +54,23 @@
       padding-right: 10%;
     }
     #about h1 { font-size: 2rem; margin-bottom: 10px; }
-    #about h2 { font-size: 1.2rem; font-weight: normal; margin: 8px 0; }
-    #about p { font-size: 1rem; line-height: 1.6; margin: 12px 0; max-width: 900px; }
-
-    /* Ensure email and phone are visible */
-    #about a {
+    #about h2.title { font-size: 1.2rem; font-weight: normal; margin: 8px 0; }
+    #about h2.contact-info {
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin: 8px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+    }
+    #about h2.contact-info a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
-    #about a:hover {
-      text-decoration: underline;
-    }
+    #about h2.contact-info a:hover { text-decoration: underline; }
+    #about p { font-size: 1rem; line-height: 1.6; margin: 12px 0; max-width: 900px; }
 
     /* Patent */
     #patent {
@@ -103,8 +108,11 @@
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
-      min-width: 250px;
-      max-width: 300px;
+      width: 300px;          /* fixed width */
+      min-height: 220px;     /* fixed minimum height */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
       z-index: 1;
     }
 
@@ -141,10 +149,10 @@
 
     .project-card:hover .tooltip {
       opacity: 1;
-      max-height: 500px;
+      max-height: 500px;   /* tooltip can expand without affecting card size */
     }
 
-    /* Skills */
+    /* Core Skills */
     #core-skills {
       background-color: white;
       color: #333;
@@ -180,22 +188,9 @@
       margin: 0;
     }
 
-    .skill-bar {
-      height: 6px;
-      width: 100%;
-      background: #ddd;
-      border-radius: 3px;
-      margin-top: 10px;
-    }
-
-    .skill-fill {
-      height: 100%;
-      background: #007bff;
-      border-radius: 3px;
-    }
-
     a { color: #007bff; text-decoration: none; }
     a:hover { text-decoration: underline; }
+
   </style>
 </head>
 <body>
@@ -210,9 +205,11 @@
     <!-- About -->
     <section id="about" class="slide">
       <h1>DINESH BABU R</h1>
-      <h2>📧 <a href="mailto:rdineshdece@gmail.com">rdineshdece@gmail.com</a> | 
-          📱 <a href="tel:+918122416549">+91 8122416549</a></h2>
-      <h2>Senior Embedded Software Engineer – Motor Control | BMS | Electric Vehicles | Robotics</h2>
+      <h2 class="contact-info">
+        📧 <a href="mailto:rdineshdece@gmail.com">rdineshdece@gmail.com</a> | 
+        📱 <a href="tel:+918122416549">+91 8122416549</a>
+      </h2>
+      <h2 class="title">Senior Embedded Software Engineer – Motor Control | BMS | Electric Vehicles | Robotics</h2>
 
       <h1 style="margin-top:30px;">Professional Summary</h1>
       <p>
@@ -349,29 +346,29 @@
     <section id="core-skills" class="slide">
       <h1>Core Embedded Systems Skills</h1>
       <div class="skills-graphics">
-        <!-- Embedded & RTOS -->
+
         <div class="skill-card">
           <h2>Embedded C & Low-Level Firmware</h2>
           <ul>
             <li>Bare-metal & RTOS-based firmware</li>
-            <li>8/16/32-bit MCUs & microprocessors</li>
+            <li>8/16/32-bit MCUs & Microprocessors</li>
           </ul>
         </div>
 
         <div class="skill-card">
           <h2>RTOS & Task Management</h2>
           <ul>
-            <li>FreeRTOS task scheduling</li>
+            <li>FreeRTOS/RTOS task scheduling</li>
             <li>Inter-task communication & synchronization</li>
             <li>Real-time debugging</li>
           </ul>
         </div>
 
-        <!-- Hardware & Algorithm -->
         <div class="skill-card">
           <h2>Hardware Bring-up & Debugging</h2>
           <ul>
-            <li>Oscilloscopes, multimeters, DC power, loads, function generators</li>
+            <li>Oscilloscopes, multimeters, DC power supplies</li>
+            <li>Electronic loads & function generators</li>
           </ul>
         </div>
 
@@ -383,12 +380,11 @@
           </ul>
         </div>
 
-        <!-- Motor & BMS -->
         <div class="skill-card">
           <h2>Motor Control & Power Electronics</h2>
           <ul>
             <li>BLDC, PMSM, low/high voltage DC motors</li>
-            <li>FOC, trapezoidal, sensored & sensorless, PWM optimization</li>
+            <li>FOC, trapezoidal, sensored & sensorless</li>
             <li>Protection & EV applications</li>
           </ul>
         </div>
@@ -409,6 +405,7 @@
   </div>
 </body>
 </html>
+
 
 
 
