@@ -8,16 +8,13 @@
     body, html {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: Arial, sans-serif;
       background-color: white;
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
 
-    /* Slides container */
     #slides {
-      height: 100%;
       width: 100%;
       overflow-y: auto;
       scroll-snap-type: y mandatory;
@@ -47,20 +44,17 @@
       background-color: #007bff;
       color: white;
       text-align: left;
-      padding-top: 60px;
-      padding-left: 10%;
-      padding-right: 10%;
+      padding: 60px 10%;
     }
 
     #about h1 { font-size: 2rem; margin-bottom: 10px; }
-    #about h2.title { font-size: 1.2rem; font-weight: normal; margin: 8px 0; }
     #about .contact-info {
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
       align-items: center;
       font-size: 1.1rem;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     #about .contact-info a {
       color: #ffffff;
@@ -85,7 +79,6 @@
       background-color: #f5f5f5;
       color: #333;
       text-align: center;
-      justify-content: flex-start;
       padding: 60px 5%;
     }
     #projects h1 { text-align: center; margin-bottom: 30px; }
@@ -95,6 +88,7 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
+      position: relative;
     }
 
     .project-card {
@@ -112,7 +106,6 @@
       flex-direction: column;
       justify-content: flex-start;
       z-index: 1;
-      /* overflow removed so tooltip can expand */
     }
 
     .project-card:hover {
@@ -142,7 +135,7 @@
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
-      z-index: 100; /* ensures tooltip above all cards */
+      z-index: 100;
     }
 
     .project-card:hover .tooltip {
@@ -193,7 +186,6 @@
       margin: 0;
     }
 
-    /* Simple icons for skills */
     .skill-icon {
       width: 18px;
       height: 18px;
@@ -201,7 +193,6 @@
       border-radius: 50%;
       display: inline-block;
     }
-
   </style>
 </head>
 <body>
@@ -227,8 +218,7 @@
         Results-driven Embedded Software Engineer with 8+ years of experience in the design, 
         development, validation, and deployment of embedded systems, from requirements 
         gathering to production and commercial deployment. Specialized in Motor Control and 
-        Battery Management Systems (BMS) for Electric Vehicles (EVs), Robotics, and Consumer 
-        Electronics.
+        Battery Management Systems (BMS) for EVs, Robotics, and Consumer Electronics.
       </p>
       <p>
         Hands-on expertise in 8/16/32-bit Microcontrollers and Microprocessors, with strong 
@@ -247,21 +237,29 @@
       </p>
     </section>
 
+    <!-- Patent -->
+    <section id="patent" class="slide">
+      <h1>Patent</h1>
+      <p>
+        <strong>Speed Command System for BLDC Motor-based Ceiling Fan using Wall Mounted Universal Capacitive Step Type Fan Regulator</strong><br>
+        Patent Application No: 201941042375<br>
+        <a href="https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus" target="_blank">
+          View Patent Status
+        </a>
+      </p>
+    </section>
+
     <!-- Projects -->
     <section id="projects" class="slide">
       <h1>Projects</h1>
       <div class="projects-container">
-
         <!-- Project 1 -->
         <div class="project-card">
           <div class="project-number">Project #1</div>
           <div class="project-title">48V & 72V BMS – EV Application</div>
           <div class="project-role">Role: Project lead</div>
           <div class="tooltip">
-            Designed a safety-focused BMS for 16S & 20S NMC/LFP battery packs with OCV, 
-            Coulomb Counting-based SoC/SoH, cell balancing, and temperature measurement. 
-            Implemented fault handling for OV, UV, OTP, OCP. SPI daisy-chain & multi-protocol 
-            support (CAN, LIN, UART, SPI). ASIL-D & ISO 26262 compliant. UART bootloader & Python GUI.
+            Designed a safety-focused BMS for 16S & 20S NMC/LFP battery packs with OCV, Coulomb Counting-based SoC/SoH, cell balancing, and temperature measurement. Implemented fault handling for OV, UV, OTP, OCP. SPI daisy-chain & multi-protocol support (CAN, LIN, UART, SPI). ASIL-D & ISO 26262 compliant. UART bootloader & Python GUI.
           </div>
         </div>
 
@@ -301,7 +299,7 @@
           <div class="project-title">Low & High Voltage BLDC Ceiling Fan</div>
           <div class="project-role">Role: Firmware Engineer</div>
           <div class="tooltip">
-            24V PMSM & 90–440V AC drive, FOC with field weakening, MPPT, PI loops, high current injection. BLE/Wi-Fi remote control. Capacitor-based fan regulator integration.
+            24V PMSM drive with FOC, field weakening, MPPT, PI loops, high-voltage BLDC with NEC IR control, BLE/Wi-Fi, and capacitor-type fan speed control.
           </div>
         </div>
 
@@ -311,10 +309,9 @@
           <div class="project-title">Door Open Timer</div>
           <div class="project-role">Role: Firmware Engineer</div>
           <div class="tooltip">
-            24V DC device controls elevator door opening with backup activation in case of main controller failure.
+            24V DC device to control elevator door opening within a set time after floor arrival. Acts as a backup if main lift board fails.
           </div>
         </div>
-
       </div>
     </section>
 
@@ -381,6 +378,7 @@
   </div>
 </body>
 </html>
+
 
 
 
