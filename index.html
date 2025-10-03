@@ -35,7 +35,7 @@
       text-align: center;
       padding: 40px;
       box-sizing: border-box;
-      position: relative; /* for z-index control */
+      position: relative;
       z-index: 0;
     }
 
@@ -94,16 +94,16 @@
       text-align: center;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative; /* for tooltip positioning */
+      position: relative;
       min-width: 250px;
       max-width: 300px;
-      z-index: 1; /* default */
+      z-index: 1;
     }
 
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-      z-index: 10; /* bring hovered card on top */
+      z-index: 10;
     }
 
     .project-number { font-weight: bold; font-size: 1rem; opacity: 0.85; }
@@ -112,8 +112,8 @@
 
     /* Tooltip */
     .project-card .tooltip {
-      position: absolute;       
-      top: 100%;                
+      position: absolute;
+      top: 100%;
       left: 0;
       width: 100%;
       background: #ffffff;
@@ -136,44 +136,33 @@
       max-height: 500px;
     }
 
-    /* Skills */
-    #skills {
+    /* Core Skills Section */
+    #core-skills {
       background-color: white;
       color: #333;
+      text-align: left;
+      padding: 60px 10%;
+      max-width: 1000px;
+    }
+    #core-skills h1 {
       text-align: center;
-      padding: 60px 0;
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      width: 80%;
-      max-width: 800px;
-      margin-top: 20px;
-    }
-    .skill-item {
-      padding: 20px;
-      border: 2px solid #007bff;
-      border-radius: 12px;
-      font-weight: bold;
+      margin-bottom: 40px;
       color: #007bff;
-      background: #f9f9f9;
-      position: relative;
     }
-    .skill-item .bar {
-      height: 6px;
-      width: 100%;
-      background: #ddd;
-      border-radius: 3px;
-      margin-top: 10px;
-      overflow: hidden;
+    .skill-category {
+      margin-bottom: 30px;
     }
-    .skill-item .progress {
-      height: 100%;
-      width: 0;
-      background: #007bff;
-      border-radius: 3px;
-      transition: width 1s ease-in-out;
+    .skill-category h2 {
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+    .skill-category ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    .skill-category ul li {
+      margin-bottom: 8px;
+      line-height: 1.5;
     }
 
     a { color: #007bff; text-decoration: none; }
@@ -237,7 +226,7 @@
     <section id="projects" class="slide">
       <h1>Projects</h1>
       <div class="projects-container">
-        <!-- Project cards -->
+        <!-- Project 1 -->
         <div class="project-card">
           <div class="project-number">Project #1</div>
           <div class="project-title">48V & 72V Battery Management System – EV Application</div>
@@ -253,6 +242,7 @@
           </div>
         </div>
 
+        <!-- Project 2 -->
         <div class="project-card">
           <div class="project-number">Project #2</div>
           <div class="project-title">24V & 48V Battery Management System - Robotics Application</div>
@@ -264,103 +254,125 @@
           </div>
         </div>
 
+        <!-- Project 3 -->
         <div class="project-card">
           <div class="project-number">Project #3</div>
           <div class="project-title">1kW & 3kW BLDC Motor Controller – EV Application</div>
           <div class="project-role">Role: Project lead</div>
           <div class="tooltip">
-            Designed and developed a bare-metal 1kW BLDC motor controller implementing HAL-based sensored 
-            control using trapezoidal and FOC methods. Optimized PWM and commutation strategies, integrated 
-            protection features, and provided UART-based interface for diagnostics. Implemented CAN communication 
-            with BMS and VCU.
+            Designed and developed a bare-metal 1kW BLDC motor controller for electric mobility 
+            applications, implementing HAL-based sensored control using trapezoidal and FOC methods 
+            for efficient and reliable operation. Optimized PWM and commutation strategies to ensure 
+            smooth performance across varying loads, integrating protection features such as 
+            overcurrent, overtemperature, and undervoltage handling. Developed a UART-based interface 
+            for diagnostics and control and led testing and validation through load simulations and 
+            real-time monitoring tools. Supported multiple e-bike riding modes including Throttle, 
+            Cruise, Power, and Pedal Assist (PAS). Implemented CAN communication between the MCU, BMS, 
+            and VCU for seamless EV integration.
           </div>
         </div>
 
+        <!-- Project 4 -->
         <div class="project-card">
           <div class="project-number">Project #4</div>
           <div class="project-title">250W BLDC Motor Controller</div>
           <div class="project-role">Role: Project lead</div>
           <div class="tooltip">
-            36V DC driver powers low-voltage BLDC hub motors with sensored FOC and trapezoidal BLDC algorithms 
-            optimizing power delivery and enhancing performance.
+            The 36V DC driver powers and controls low-voltage BLDC hub motors commonly used in 
+            e-bikes for their efficiency and reliability. Sensored Field-Oriented Control (FOC) and 
+            Trapezoidal BLDC algorithms are key motor control techniques that optimize power delivery 
+            and enhance motor performance in e-bikes.
           </div>
         </div>
 
+        <!-- Project 5 -->
         <div class="project-card">
           <div class="project-number">Project #5</div>
           <div class="project-title">Low and High Voltage BLDC Ceiling Fan</div>
           <div class="project-role">Role: Firmware Engineer</div>
           <div class="tooltip">
-            Developed 24V PMSM drive using FOC, field weakening, MPPT, and PI loops. Enabled capacitor-type fan 
-            regulators with step change and position detection. Developed high-voltage system (90–440V AC) 
-            with sensored/sensorless HV-BLDC motors.
+            Designed a low-cost 24V PMSM drive powered by a 230V AC driver using single, two, and 
+            three-shunt current control with FOC algorithm. Implemented field weakening, MPPT, and 
+            three-layer PI loops for smooth and efficient operation. Added high current injection for 
+            startup, NEC IR control, and BLE/Wi-Fi (Modbus) for remote speed management. Enabled BLDC 
+            speed control via capacitor-type fan regulators with step change and position detection, 
+            overcoming fixed SMPS voltage limitations. Developed a high-voltage ceiling fan system using 
+            a 90–440V AC driver to run sensored and sensorless HV-BLDC motors with single-shunt control. 
+            Delivered high-performance, cost-effective solutions for the Indian market.
           </div>
         </div>
 
+        <!-- Project 6 -->
         <div class="project-card">
           <div class="project-number">Project #6</div>
           <div class="project-title">Door Open Timer</div>
           <div class="project-role">Role: Firmware Engineer</div>
           <div class="tooltip">
-            Developed a 24V DC device to control elevator door opening within set time after floor arrival.
+            Developed a 24V DC device to control elevator door opening within a set time after floor
+            arrival. Designed as a backup to activate the door if the main lift control board fails.
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="slide">
-      <h1>Skills</h1>
-      <div class="skills-grid">
-        <div class="skill-item">
-          Embedded C
-          <div class="bar"><div class="progress" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          RTOS
-          <div class="bar"><div class="progress" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          Motor Control
-          <div class="bar"><div class="progress" style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          BMS
-          <div class="bar"><div class="progress" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          CAN / UART / SPI / I2C
-          <div class="bar"><div class="progress" style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          Python
-          <div class="bar"><div class="progress" style="width:70%"></div></div>
-        </div>
-        <div class="skill-item">
-          Firmware Development
-          <div class="bar"><div class="progress" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          Hardware Bring-up
-          <div class="bar"><div class="progress" style="width:75%"></div></div>
-        </div>
+    <!-- Core Embedded Systems Skills -->
+    <section id="core-skills" class="slide">
+      <h1>Core Skills</h1>
+
+      <div class="skill-category">
+        <h2>Embedded Systems</h2>
+        <ul>
+          <li>Embedded C & Low-Level Firmware Development: Strong experience in bare-metal and RTOS-based firmware for 8/16/32-bit microcontrollers and microprocessors.</li>
+          <li>RTOS & Task Management: FreeRTOS/RTOS task scheduling, inter-task communication, synchronization, and real-time debugging.</li>
+          <li>Hardware Bring-up & Board-Level Debugging: Hands-on testing with oscilloscopes, digital multimeters, DC power supplies, electronic loads, and function generators.</li>
+          <li>Algorithm Implementation: Sensorless/sensored BLDC, FOC, trapezoidal control, field weakening, MPPT, PI control loops, SoC/SoH calculation, fault detection.</li>
+        </ul>
       </div>
+
+      <div class="skill-category">
+        <h2>Motor Control & Power Electronics</h2>
+        <ul>
+          <li>Motor Types: BLDC, PMSM, low/high voltage DC motors.</li>
+          <li>Motor Control Techniques: FOC, trapezoidal, sensored & sensorless control, PWM optimization, commutation strategies.</li>
+          <li>Control Features: Overcurrent, overvoltage, undervoltage, overtemperature protections, smooth startup, speed/torque regulation, smart speed control.</li>
+          <li>EV Applications: PMSM drives, BLDC controllers, servo motor drives, e-bike & robotics applications.</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h2>Battery Management Systems (BMS)</h2>
+        <ul>
+          <li>Battery Expertise: 8S, 16S, 20S NMC/LFP battery packs, CC-CV charging, cell balancing, OCV/SoC/SoH monitoring, temperature management.</li>
+          <li>Protocols & Communication: SPI (daisy-chain), UART, CAN, LIN, BLE, Wi-Fi for BMS & MCU interfacing.</li>
+          <li>Standards Compliance: ASIL-D, ISO 26262 for functional safety in automotive/EV applications.</li>
+          <li>Firmware Features: Fault handling (OV, UV, OTP, OCP), bootloader programming, GUI-based firmware updates.</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h2>Communication Protocols & Interfaces</h2>
+        <ul>
+          <li>Serial Interfaces: UART, SPI, I2C, CAN, LIN.</li>
+          <li>Wireless & IoT Interfaces: BLE, Wi-Fi, Modbus integration.</li>
+          <li>Peripheral Integration: Sensor interfaces, MCU-to-MCU communication, VCU interfacing.</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h2>Software Tools & Development</h2>
+        <ul>
+          <li>Programming Languages: Embedded C, Python (for GUI and testing).</li>
+          <li>Development Tools: IDEs, emulators, debuggers, data loggers, GUI tools for validation and performance monitoring.</li>
+          <li>Project Management: Jira for sprint planning, task management, and project tracking.</li>
+        </ul>
+      </div>
+
     </section>
 
   </div>
-
-  <script>
-    // Animate skill progress bars on load
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.progress').forEach(p => {
-        const width = p.style.width;
-        p.style.width = '0';
-        setTimeout(() => { p.style.width = width; }, 200);
-      });
-    });
-  </script>
 </body>
 </html>
+
 
 
