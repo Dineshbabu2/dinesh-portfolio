@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinesh | Portfolio</title>
+  <title>Dinesh Babu R | Portfolio</title>
   <style>
     body, html {
       margin: 0;
@@ -15,6 +15,7 @@
       overflow-x: hidden;
     }
 
+    /* Slides container */
     #slides {
       height: 100vh;
       width: 100%;
@@ -22,6 +23,7 @@
       scroll-snap-type: y mandatory;
     }
 
+    /* Slide styling */
     .slide {
       height: 100vh;
       width: 100%;
@@ -52,16 +54,9 @@
       padding-right: 10%;
       overflow-y: auto;
     }
-
     #about h1 { font-size: 2rem; margin-bottom: 10px; }
     #about h2 { font-size: 1.2rem; font-weight: normal; margin: 8px 0; }
     #about p { font-size: 1rem; line-height: 1.6; margin: 12px 0; max-width: 900px; }
-
-    /* Work */
-    #work { background-color: #f5f5f5; color: #333; }
-
-    /* Skills */
-    #skills { background-color: white; color: #333; }
 
     /* Patent */
     #patent {
@@ -71,17 +66,35 @@
       justify-content: center;
       padding: 60px 20px;
     }
+    #patent a { color: #ffffff; text-decoration: underline; }
 
-    h1 { font-size: 2rem; margin-bottom: 20px; }
+    /* Work Experience */
+    #work {
+      background-color: #f5f5f5;
+      color: #333;
+      text-align: left;
+      justify-content: flex-start;
+      padding-top: 60px;
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+    #work h1 { text-align: center; margin-bottom: 30px; }
+    #work ul { list-style-type: disc; }
 
+    /* Skills */
+    #skills {
+      background-color: white;
+      color: #333;
+      text-align: center;
+    }
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 20px;
       width: 80%;
       max-width: 800px;
+      margin-top: 20px;
     }
-
     .skill-item {
       padding: 20px;
       border: 2px solid #007bff;
@@ -91,11 +104,13 @@
       background: #f9f9f9;
     }
 
-    a { color: #ffffff; text-decoration: underline; }
+    a { color: #007bff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <div id="slides">
+
     <!-- Hero -->
     <section id="hero" class="slide">
       <h1>Welcome to My Portfolio</h1>
@@ -146,10 +161,36 @@
       </p>
     </section>
 
-    <!-- Work -->
+    <!-- Work Experience -->
     <section id="work" class="slide">
       <h1>Work Experience</h1>
-      <p>🚀 Add your projects and career journey here.</p>
+      <ul style="line-height:1.6; max-width:800px; margin: 0 auto;">
+        <li>
+          <strong>Motherson Automotive Technologies and Engineering, Chennai, India</strong><br>
+          Mar 2025 – Present<br>
+          Senior Embedded Software Engineer – Motor Control & BMS
+        </li>
+        <li>
+          <strong>Excelpoint Systems India Pvt. Ltd., Bangalore, India</strong><br>
+          Jul 2023 – Dec 2024<br>
+          Senior Embedded Software Engineer – Motor Control & BMS
+        </li>
+        <li>
+          <strong>Sosaley Technologies Pvt. Ltd., Chennai, India</strong><br>
+          May 2022 – Jul 2023<br>
+          Senior Embedded Engineer – Motor Control
+        </li>
+        <li>
+          <strong>Kaynes Technology India Pvt. Ltd., Mysore, India</strong><br>
+          Jan 2021 – May 2022<br>
+          Firmware Engineer – Motor Control
+        </li>
+        <li>
+          <strong>Versa Drives Pvt. Ltd., Coimbatore, India</strong><br>
+          Jul 2017 – Jan 2021<br>
+          Firmware Engineer – Motor Control
+        </li>
+      </ul>
     </section>
 
     <!-- Skills -->
@@ -162,11 +203,15 @@
         <div class="skill-item">BMS</div>
         <div class="skill-item">CAN / UART / SPI / I2C</div>
         <div class="skill-item">Python</div>
+        <div class="skill-item">Firmware Development</div>
+        <div class="skill-item">Hardware Bring-up</div>
       </div>
     </section>
+
   </div>
 </body>
 </html>
+
 
 
 
