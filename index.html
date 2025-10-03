@@ -23,7 +23,6 @@
       scroll-snap-type: y mandatory;
     }
 
-    /* Slide styling */
     .slide {
       min-height: 100vh;
       width: 100%;
@@ -48,28 +47,28 @@
       background-color: #007bff;
       color: white;
       text-align: left;
-      justify-content: flex-start;
       padding-top: 60px;
       padding-left: 10%;
       padding-right: 10%;
     }
+
     #about h1 { font-size: 2rem; margin-bottom: 10px; }
     #about h2.title { font-size: 1.2rem; font-weight: normal; margin: 8px 0; }
-    #about h2.contact-info {
-      font-size: 1.2rem;
-      font-weight: normal;
-      margin: 8px 0;
+    #about .contact-info {
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
       align-items: center;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
     }
-    #about h2.contact-info a {
-      color: white;
-      text-decoration: none;
+    #about .contact-info a {
+      color: #ffffff;
       font-weight: bold;
+      text-decoration: none;
     }
-    #about h2.contact-info a:hover { text-decoration: underline; }
+    #about .contact-info a:hover { text-decoration: underline; }
+
     #about p { font-size: 1rem; line-height: 1.6; margin: 12px 0; max-width: 900px; }
 
     /* Patent */
@@ -96,21 +95,24 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
-      position: relative;
     }
 
     .project-card {
       background: #007bff;
       color: #fff;
-      padding: 20px;
+      padding: 10px;
       border-radius: 12px;
       text-align: center;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
-      min-width: 250px;
-      max-width: 300px;
+      width: 300px;  
+      height: 100px;  
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
       z-index: 1;
+      overflow: hidden;
     }
 
     .project-card:hover {
@@ -120,15 +122,14 @@
     }
 
     .project-number { font-weight: bold; font-size: 1rem; opacity: 0.85; }
-    .project-title { font-size: 1.1rem; margin: 10px 0; font-weight: 600; }
-    .project-role { font-size: 0.95rem; opacity: 0.85; }
+    .project-title { font-size: 1.1rem; margin: 5px 0; font-weight: 600; }
+    .project-role { font-size: 0.9rem; opacity: 0.85; }
 
-    /* Tooltip */
     .project-card .tooltip {
       position: absolute;
       top: 100%;
       left: 0;
-      width: 100%;
+      width: 320px;
       background: #ffffff;
       color: #333;
       padding: 15px;
@@ -141,7 +142,7 @@
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
-      z-index: 10;
+      z-index: 20;
     }
 
     .project-card:hover .tooltip {
@@ -149,7 +150,7 @@
       max-height: 500px;
     }
 
-    /* Skills */
+    /* Core Skills */
     #core-skills {
       background-color: white;
       color: #333;
@@ -171,12 +172,19 @@
       border: 2px solid #007bff;
       text-align: left;
       background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
     }
 
     .skill-card h2 {
       color: #007bff;
       margin-bottom: 10px;
       font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .skill-card ul {
@@ -185,8 +193,14 @@
       margin: 0;
     }
 
-    a { color: #007bff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    /* Simple icons for skills */
+    .skill-icon {
+      width: 18px;
+      height: 18px;
+      background-color: #007bff;
+      border-radius: 50%;
+      display: inline-block;
+    }
 
   </style>
 </head>
@@ -202,11 +216,11 @@
     <!-- About -->
     <section id="about" class="slide">
       <h1>DINESH BABU R</h1>
-      <h2 class="contact-info">
+      <div class="contact-info">
         📧 <a href="mailto:rdineshdece@gmail.com">rdineshdece@gmail.com</a> | 
         📱 <a href="tel:+918122416549">+91 8122416549</a>
-      </h2>
-      <h2 class="title">Senior Embedded Software Engineer – Motor Control | BMS | Electric Vehicles | Robotics</h2>
+      </div>
+      <h2 class="title">Senior Embedded Software Engineer – Motor Control | BMS | EV | Robotics</h2>
 
       <h1 style="margin-top:30px;">Professional Summary</h1>
       <p>
@@ -233,18 +247,6 @@
       </p>
     </section>
 
-    <!-- Patent -->
-    <section id="patent" class="slide">
-      <h1>Patent</h1>
-      <p>
-        <strong>Speed Command System for BLDC Motor-based Ceiling Fan using Wall Mounted Universal Capacitive Step Type Fan Regulator</strong><br>
-        Patent Application No: 201941042375<br>
-        <a href="https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus" target="_blank">
-          View Patent Status
-        </a>
-      </p>
-    </section>
-
     <!-- Projects -->
     <section id="projects" class="slide">
       <h1>Projects</h1>
@@ -252,33 +254,65 @@
         <!-- Project 1 -->
         <div class="project-card">
           <div class="project-number">Project #1</div>
-          <div class="project-title">48V & 72V Battery Management System – EV Application</div>
+          <div class="project-title">48V & 72V BMS – EV Application</div>
           <div class="project-role">Role: Project lead</div>
           <div class="tooltip">
-            Designed a safety-focused BMS for 16S and 20S NMC/LFP battery packs with OCV and 
-            Coulomb Counting-based SoC, SoH, cell balancing, and temperature measurement. 
-            Implemented fault handling for OV, UV, OTP, and OCP. Developed SPI-based daisy-chain 
-            communication for slave boards and enabled multi-protocol support including CAN, LIN, 
-            UART, and SPI. Designed the BMS controller in compliance with ASIL-D and ISO 26262 
-            standards. Integrated UART-based bootloader programming with a custom Python GUI for 
-            firmware updates.
+            Designed a safety-focused BMS for 16S & 20S NMC/LFP battery packs with OCV, 
+            Coulomb Counting-based SoC/SoH, cell balancing, and temperature measurement. 
+            Implemented fault handling for OV, UV, OTP, OCP. SPI daisy-chain & multi-protocol 
+            support (CAN, LIN, UART, SPI). ASIL-D & ISO 26262 compliant. UART bootloader & Python GUI.
           </div>
         </div>
 
         <!-- Project 2 -->
         <div class="project-card">
           <div class="project-number">Project #2</div>
-          <div class="project-title">24V & 48V Battery Management System - Robotics Application</div>
+          <div class="project-title">24V & 48V BMS – Robotics</div>
           <div class="project-role">Role: Project lead</div>
           <div class="tooltip">
-            Designed a safety-focused BMS for 8S and 16S NMC/LFP battery packs with OCV and Coulomb 
-            Counting-based SoC, SoH, cell balancing, and temperature measurement. Implemented fault 
-            handling for OV, UV, OTP, and OCP.
+            BMS for 8S & 16S NMC/LFP packs with OCV & Coulomb Counting SoC/SoH, cell balancing, temperature measurement. OV, UV, OTP, OCP fault handling.
           </div>
         </div>
 
-        <!-- Additional projects can follow same structure -->
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-number">Project #3</div>
+          <div class="project-title">1kW & 3kW BLDC Motor Controller – EV</div>
+          <div class="project-role">Role: Project lead</div>
+          <div class="tooltip">
+            Bare-metal 1kW BLDC motor controller using HAL, sensored control, FOC & trapezoidal. Optimized PWM & commutation. UART diagnostics & CAN communication with BMS & VCU. E-bike modes: Throttle, Cruise, Power, PAS.
+          </div>
+        </div>
 
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-number">Project #4</div>
+          <div class="project-title">250W BLDC Motor Controller</div>
+          <div class="project-role">Role: Project lead</div>
+          <div class="tooltip">
+            36V DC driver for BLDC hub motors. Sensored FOC & Trapezoidal BLDC control for efficient e-bike operation.
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card">
+          <div class="project-number">Project #5</div>
+          <div class="project-title">Low & High Voltage BLDC Ceiling Fan</div>
+          <div class="project-role">Role: Firmware Engineer</div>
+          <div class="tooltip">
+            24V PMSM & 90–440V AC drive, FOC with field weakening, MPPT, PI loops, high current injection. BLE/Wi-Fi remote control. Capacitor-based fan regulator integration.
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card">
+          <div class="project-number">Project #6</div>
+          <div class="project-title">Door Open Timer</div>
+          <div class="project-role">Role: Firmware Engineer</div>
+          <div class="tooltip">
+            24V DC device controls elevator door opening with backup activation in case of main controller failure.
+          </div>
+        </div>
       </div>
     </section>
 
@@ -286,52 +320,51 @@
     <section id="core-skills" class="slide">
       <h1>Core Embedded Systems Skills</h1>
       <div class="skills-graphics">
-        <!-- Embedded & RTOS -->
+
         <div class="skill-card">
-          <h2>Embedded C & Low-Level Firmware</h2>
+          <h2><span class="skill-icon"></span> Embedded C & Low-Level Firmware</h2>
           <ul>
-            <li>Bare-metal & RTOS-based firmware</li>
-            <li>8/16/32-bit MCUs & microprocessors</li>
+            <li>Bare-metal & RTOS-based firmware for 8/16/32-bit MCUs</li>
+            <li>Low-level driver development</li>
           </ul>
         </div>
 
         <div class="skill-card">
-          <h2>RTOS & Task Management</h2>
+          <h2><span class="skill-icon"></span> RTOS & Task Management</h2>
           <ul>
-            <li>FreeRTOS task scheduling</li>
+            <li>FreeRTOS/RTOS scheduling</li>
             <li>Inter-task communication & synchronization</li>
             <li>Real-time debugging</li>
           </ul>
         </div>
 
-        <!-- Hardware & Algorithm -->
         <div class="skill-card">
-          <h2>Hardware Bring-up & Debugging</h2>
+          <h2><span class="skill-icon"></span> Hardware Bring-up & Board Debugging</h2>
           <ul>
-            <li>Oscilloscopes, multimeters, DC power, loads, function generators</li>
+            <li>Oscilloscopes, multimeters, DC power supplies</li>
+            <li>Electronic loads & function generators</li>
           </ul>
         </div>
 
         <div class="skill-card">
-          <h2>Algorithm Implementation</h2>
+          <h2><span class="skill-icon"></span> Algorithm Implementation</h2>
           <ul>
             <li>Sensorless/sensored BLDC, FOC, trapezoidal control</li>
             <li>Field weakening, MPPT, PI loops, SoC/SoH, fault detection</li>
           </ul>
         </div>
 
-        <!-- Motor & BMS -->
         <div class="skill-card">
-          <h2>Motor Control & Power Electronics</h2>
+          <h2><span class="skill-icon"></span> Motor Control & Power Electronics</h2>
           <ul>
             <li>BLDC, PMSM, low/high voltage DC motors</li>
-            <li>FOC, trapezoidal, sensored & sensorless, PWM optimization</li>
+            <li>FOC, trapezoidal, sensored & sensorless</li>
             <li>Protection & EV applications</li>
           </ul>
         </div>
 
         <div class="skill-card">
-          <h2>Battery Management Systems (BMS)</h2>
+          <h2><span class="skill-icon"></span> Battery Management Systems (BMS)</h2>
           <ul>
             <li>8S/16S/20S NMC/LFP packs</li>
             <li>CC-CV charging, cell balancing, SoC/SoH monitoring</li>
@@ -346,6 +379,7 @@
   </div>
 </body>
 </html>
+
 
 
 
