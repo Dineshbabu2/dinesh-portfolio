@@ -86,7 +86,7 @@
       justify-content: center;
       margin-top: 30px;
     }
-    .project-card {
+    /* .project-card {
       position: relative;
       background: #007bff;
       color: white;
@@ -96,7 +96,18 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.25);
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
-    }
+    } */
+    .project-card {
+  background: #007bff;
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden; /* prevents overflow */
+}
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.35);
@@ -117,7 +128,7 @@
     }
 
     /* Tooltip for project details */
-    .tooltip {
+    /* .tooltip {
       visibility: hidden;
       background-color: rgba(0,0,0,0.85);
       color: #fff;
@@ -138,8 +149,24 @@
     .project-card:hover .tooltip {
       visibility: visible;
       opacity: 1;
-    }
+    } */
 
+    .project-card .tooltip {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .project-card:hover .tooltip {
+    max-height: 400px; /* enough to show full description */
+    opacity: 1;
+  }
+    
     /* Skills */
     #skills {
       background-color: white;
