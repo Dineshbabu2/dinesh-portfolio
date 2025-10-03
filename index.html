@@ -46,7 +46,6 @@
       text-align: left;
       padding: 60px 10%;
     }
-
     #about h1 { font-size: 2rem; margin-bottom: 10px; }
     #about .contact-info {
       display: flex;
@@ -62,6 +61,7 @@
       text-decoration: none;
     }
     #about .contact-info a:hover { text-decoration: underline; }
+
     #about p { font-size: 1rem; line-height: 1.6; margin: 12px 0; max-width: 900px; }
 
     /* Patent */
@@ -73,15 +73,7 @@
     }
     #patent a { color: #ffffff; text-decoration: underline; }
 
-    /* Projects */
-    #projects {
-      background-color: #f5f5f5;
-      color: #333;
-      text-align: center;
-      padding: 60px 5%;
-    }
-    #projects h1 { text-align: center; margin-bottom: 30px; }
-
+    /* Projects & Skills Cards */
     .projects-container {
       display: flex;
       flex-wrap: wrap;
@@ -100,7 +92,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       width: 300px;  
-      height: 100px;  
+      min-height: 100px;  
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -142,7 +134,7 @@
       max-height: 500px;
     }
 
-    /* Skills */
+    /* Core Skills */
     #core-skills {
       background-color: white;
       color: #333;
@@ -151,58 +143,6 @@
     }
     #core-skills h1 { margin-bottom: 30px; }
 
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .card {
-      background: #007bff;
-      color: #fff;
-      padding: 15px;
-      border-radius: 12px;
-      width: 300px;
-      cursor: pointer;
-      position: relative;
-      text-align: left;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-      z-index: 10;
-    }
-
-    .card h3 {
-      margin: 0 0 5px 0;
-      font-size: 1.1rem;
-    }
-
-    .card .tooltip {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: #ffffff;
-      color: #333;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      line-height: 1.4;
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-    }
-
-    .card:hover .tooltip {
-      opacity: 1;
-      max-height: 1000px;
-    }
   </style>
 </head>
 <body>
@@ -211,7 +151,7 @@
     <!-- Hero -->
     <section id="hero" class="slide">
       <h1>Welcome to My Portfolio</h1>
-      <p>Embedded Software Engineer | Motor Control | BMS | Robotics | EV</p>
+      <p>Embedded Software Engineer | Motor Control | BMS | Robotics</p>
     </section>
 
     <!-- About -->
@@ -272,7 +212,6 @@
             Designed a safety-focused BMS for 16S & 20S NMC/LFP battery packs with OCV, Coulomb Counting-based SoC/SoH, cell balancing, and temperature measurement. Implemented fault handling for OV, UV, OTP, OCP. SPI daisy-chain & multi-protocol support (CAN, LIN, UART, SPI). ASIL-D & ISO 26262 compliant. UART bootloader & Python GUI.
           </div>
         </div>
-
         <!-- Project 2 -->
         <div class="project-card">
           <div class="project-number">Project #2</div>
@@ -282,7 +221,6 @@
             BMS for 8S & 16S NMC/LFP packs with OCV & Coulomb Counting SoC/SoH, cell balancing, temperature measurement. OV, UV, OTP, OCP fault handling.
           </div>
         </div>
-
         <!-- Project 3 -->
         <div class="project-card">
           <div class="project-number">Project #3</div>
@@ -292,7 +230,6 @@
             Bare-metal BLDC motor controller, HAL-based sensored control, FOC & trapezoidal, optimized PWM, overcurrent, overtemperature, undervoltage protections. UART diagnostics & CAN for BMS/VCU.
           </div>
         </div>
-
         <!-- Project 4 -->
         <div class="project-card">
           <div class="project-number">Project #4</div>
@@ -302,7 +239,6 @@
             36V DC driver for e-bikes, sensored FOC & trapezoidal algorithms, optimized for efficiency & reliability.
           </div>
         </div>
-
         <!-- Project 5 -->
         <div class="project-card">
           <div class="project-number">Project #5</div>
@@ -312,7 +248,6 @@
             24V PMSM drive with FOC, field weakening, MPPT, PI loops, high-voltage BLDC with NEC IR control, BLE/Wi-Fi, and capacitor-type fan speed control.
           </div>
         </div>
-
         <!-- Project 6 -->
         <div class="project-card">
           <div class="project-number">Project #6</div>
@@ -325,83 +260,83 @@
       </div>
     </section>
 
-    <!-- Skills -->
+    <!-- Core Skills -->
     <section id="core-skills" class="slide">
       <h1>Core Embedded Systems Skills</h1>
-      <div class="card-container">
-        
-        <div class="card">
-          <h3>Embedded C & Low-Level Firmware</h3>
+      <div class="projects-container">
+
+        <div class="project-card">
+          <div class="project-title">Embedded C & Low-Level Firmware</div>
           <div class="tooltip">
-            Strong experience in bare-metal and RTOS-based firmware for 8/16/32-bit microcontrollers and microprocessors.<br>
-            Low-level driver development
+            • Strong experience in bare-metal and RTOS-based firmware for 8/16/32-bit microcontrollers and microprocessors.<br>
+            • Low-level driver development
           </div>
         </div>
 
-        <div class="card">
-          <h3>RTOS & Task Management</h3>
+        <div class="project-card">
+          <div class="project-title">RTOS & Task Management</div>
           <div class="tooltip">
-            FreeRTOS/RTOS scheduling<br>
-            Inter-task communication & synchronization<br>
-            Real-time debugging
+            • FreeRTOS/RTOS scheduling<br>
+            • Inter-task communication & synchronization<br>
+            • Real-time debugging
           </div>
         </div>
 
-        <div class="card">
-          <h3>Hardware Bring-up & Board Debugging</h3>
+        <div class="project-card">
+          <div class="project-title">Hardware Bring-up & Board Debugging</div>
           <div class="tooltip">
-            Hands-on testing with oscilloscopes, digital multimeters, DC power supplies, electronic loads, and function generators.
+            • Hands-on testing with oscilloscopes, digital multimeters, DC power supplies, electronic loads, and function generators.
           </div>
         </div>
 
-        <div class="card">
-          <h3>Algorithm Implementation</h3>
+        <div class="project-card">
+          <div class="project-title">Algorithm Implementation</div>
           <div class="tooltip">
-            Sensorless/sensored BLDC, FOC, trapezoidal control, field weakening, MPPT, PI control loops, SoC/SoH calculation, fault detection
+            • Sensorless/sensored BLDC, FOC, trapezoidal control, field weakening, MPPT, PI control loops, SoC/SoH calculation, fault detection
           </div>
         </div>
 
-        <div class="card">
-          <h3>Motor Control & Power Electronics</h3>
+        <div class="project-card">
+          <div class="project-title">Motor Control & Power Electronics</div>
           <div class="tooltip">
-            Motor Types: BLDC, PMSM, low/high voltage DC motors<br>
-            FOC, trapezoidal, sensored & sensorless control, PWM optimization, commutation strategies<br>
-            Control Features: Overcurrent, overvoltage, undervoltage, overtemperature protections, smooth startup, speed/torque regulation, smart speed control<br>
-            EV Applications: PMSM drives, BLDC controllers, servo motor drives, e-bike & robotics applications
+            • Motor Types: BLDC, PMSM, low/high voltage DC motors<br>
+            • FOC, trapezoidal, sensored & sensorless control, PWM optimization, commutation strategies<br>
+            • Control Features: Overcurrent, overvoltage, undervoltage, overtemperature protections, smooth startup, speed/torque regulation, smart speed control<br>
+            • EV Applications: PMSM drives, BLDC controllers, servo motor drives, e-bike & robotics applications
           </div>
         </div>
 
-        <div class="card">
-          <h3>Battery Management Systems (BMS)</h3>
+        <div class="project-card">
+          <div class="project-title">Battery Management Systems (BMS)</div>
           <div class="tooltip">
-            Battery Expertise: 8S, 16S, 20S NMC/LFP battery packs, CC-CV charging, cell balancing, OCV/SoC/SoH monitoring, temperature management<br>
-            Protocols & Communication: SPI (daisy-chain), UART, CAN, LIN, BLE, Wi-Fi for BMS & MCU interfacing<br>
-            Standards Compliance: ASIL-D, ISO 26262 for functional safety in automotive/EV applications<br>
-            Firmware Features: Fault handling (OV, UV, OTP, OCP), bootloader programming, GUI-based firmware updates
+            • Battery Expertise: 8S, 16S, 20S NMC/LFP battery packs, CC-CV charging, cell balancing, OCV/SoC/SoH monitoring, temperature management<br>
+            • Protocols & Communication: SPI (daisy-chain), UART, CAN, LIN, BLE, Wi-Fi for BMS & MCU interfacing<br>
+            • Standards Compliance: ASIL-D, ISO 26262 for functional safety in automotive/EV applications<br>
+            • Firmware Features: Fault handling (OV, UV, OTP, OCP), bootloader programming, GUI-based firmware updates
           </div>
         </div>
 
-        <div class="card">
-          <h3>Communication Protocols & Interfaces</h3>
+        <div class="project-card">
+          <div class="project-title">Communication Protocols & Interfaces</div>
           <div class="tooltip">
-            UART, SPI, I2C, CAN, LIN, BLE, Wi-Fi, Modbus, peripheral integration
+            • UART, SPI, I2C, CAN, LIN, BLE, Wi-Fi, Modbus, peripheral integration
           </div>
         </div>
 
-        <div class="card">
-          <h3>Software Tools & Development</h3>
+        <div class="project-card">
+          <div class="project-title">Software Tools & Development</div>
           <div class="tooltip">
-            Embedded C, Python<br>
-            IDEs, emulators, debuggers, data loggers, GUI tools for validation and performance monitoring<br>
-            Project Management: Jira
+            • Embedded C, Python<br>
+            • IDEs, emulators, debuggers, data loggers, GUI tools for validation and performance monitoring<br>
+            • Project Management: Jira
           </div>
         </div>
 
-        <div class="card">
-          <h3>Testing & Validation</h3>
+        <div class="project-card">
+          <div class="project-title">Testing & Validation</div>
           <div class="tooltip">
-            Hardware-in-the-loop testing, load simulation, real-time monitoring<br>
-            Data logging, algorithm validation, performance optimization
+            • Hardware-in-the-loop testing, load simulation, real-time monitoring<br>
+            • Data logging, algorithm validation, performance optimization
           </div>
         </div>
 
@@ -411,6 +346,7 @@
   </div>
 </body>
 </html>
+
 
 
 
