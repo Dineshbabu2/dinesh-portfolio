@@ -3,269 +3,415 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinesh Portfolio</title>
+  <title>Dinesh Babu R | Portfolio</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    body, html {
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      background: #f4f4f4;
-      color: #333;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
-    header {
-      background: #222;
-      color: #fff;
-      padding: 40px 20px;
+    #slides {
+      width: 100%;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+    }
+
+    .slide {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      scroll-snap-align: start;
       text-align: center;
+      padding: 40px;
+      box-sizing: border-box;
     }
 
-    header h1 {
-      margin: 10px 0;
-      font-size: 2rem;
+    /* Hero */
+    #hero {
+      background-color: white;
+      color: #007bff;
     }
 
-    header p {
-      margin: 5px 0;
+    /* About */
+    #about {
+      background-color: #007bff;
+      color: white;
+      text-align: left;
+      padding: 60px 10%;
     }
 
-    section {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 1.8rem;
-      color: #222;
-    }
-
-    /* Card Container */
-    .card-container {
+    #about h1 { font-size: 2rem; margin-bottom: 10px; }
+    #about .contact-info {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      gap: 15px;
+      align-items: center;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    #about .contact-info a {
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    #about .contact-info a:hover { text-decoration: underline; }
+    #about p { font-size: 1rem; line-height: 1.6; margin: 12px 0; max-width: 900px; }
+
+    /* Patent */
+    #patent {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    #patent a { color: #ffffff; text-decoration: underline; }
+
+    /* Projects */
+    #projects {
+      background-color: #f5f5f5;
+      color: #333;
+      text-align: center;
+      padding: 60px 5%;
+    }
+    #projects h1 { text-align: center; margin-bottom: 30px; }
+
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
       gap: 20px;
+      justify-content: center;
+      position: relative;
     }
 
-    /* Cards (Projects & Skills) */
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      width: 300px;
-      padding: 15px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      position: relative;
+    .project-card {
+      background: #007bff;
+      color: #fff;
+      padding: 10px;
+      border-radius: 12px;
+      text-align: center;
       cursor: pointer;
-      overflow: visible;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      width: 300px;  
+      height: 100px;  
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
       z-index: 1;
     }
 
-    .card h3 {
-      margin: 0;
-      font-size: 1.1rem;
-      color: #222;
-    }
-
-    .tooltip {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: all 0.4s ease;
-      margin-top: 10px;
-      background: #f9f9f9;
-      border-radius: 8px;
-      padding: 0 10px;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    .card:hover {
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
       z-index: 10;
     }
 
-    .card:hover .tooltip {
-      max-height: 500px; /* Large enough to fit content */
-      opacity: 1;
+    .project-number { font-weight: bold; font-size: 1rem; opacity: 0.85; }
+    .project-title { font-size: 1.1rem; margin: 5px 0; font-weight: 600; }
+    .project-role { font-size: 0.9rem; opacity: 0.85; }
+
+    .project-card .tooltip {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 300px;
+      background: #ffffff;
+      color: #333;
       padding: 10px;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      z-index: 100;
     }
 
-    /* About Section */
-    .about {
-      background: #fff;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    .project-card:hover .tooltip {
+      opacity: 1;
+      max-height: 500px;
     }
 
-    /* Patent Section */
-    .patent {
-      background: #eef7ff;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .patent a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-
-    .patent a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background: #222;
-      color: #fff;
+    /* Skills */
+    #core-skills {
+      background-color: white;
+      color: #333;
       text-align: center;
+      padding: 60px 5%;
+    }
+    #core-skills h1 { margin-bottom: 30px; }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background: #007bff;
+      color: #fff;
       padding: 15px;
-      margin-top: 20px;
+      border-radius: 12px;
+      width: 300px;
+      cursor: pointer;
+      position: relative;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      z-index: 10;
+    }
+
+    .card h3 {
+      margin: 0 0 5px 0;
+      font-size: 1.1rem;
+    }
+
+    .card .tooltip {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      color: #333;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover .tooltip {
+      opacity: 1;
+      max-height: 1000px;
     }
   </style>
 </head>
 <body>
-  <!-- Hero Section -->
-  <header>
-    <h1>Welcome to My Portfolio</h1>
-    <p>Embedded Software Engineer | Motor Control | BMS | Electric Vehicle | Robotics</p>
-    <h2>DINESH BABU R</h2>
-    <p>📧 rdineshdece@gmail.com | 📱 +91 8122416549</p>
-    <p>Senior Embedded Software Engineer – Motor Control | BMS | EV | Robotics</p>
-  </header>
+  <div id="slides">
 
-  <!-- About Section -->
-  <section>
-    <h2>Professional Summary</h2>
-    <div class="about">
+    <!-- Hero -->
+    <section id="hero" class="slide">
+      <h1>Welcome to My Portfolio</h1>
+      <p>Embedded Software Engineer | Motor Control | BMS | Robotics | EV</p>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="slide">
+      <h1>DINESH BABU R</h1>
+      <div class="contact-info">
+        📧 <a href="mailto:rdineshdece@gmail.com">rdineshdece@gmail.com</a> | 
+        📱 <a href="tel:+918122416549">+91 8122416549</a>
+      </div>
+      <h2 class="title">Senior Embedded Software Engineer – Motor Control | BMS | EV | Robotics</h2>
+
+      <h1 style="margin-top:30px;">Professional Summary</h1>
       <p>
-        Results-driven Embedded Software Engineer with 8+ years of experience in the design, development, validation, 
-        and deployment of embedded systems, from requirements gathering to production and commercial deployment. 
-        Specialized in Motor Control and Battery Management Systems (BMS) for EVs, Robotics, and Consumer Electronics.
+        Results-driven Embedded Software Engineer with 8+ years of experience in the design, 
+        development, validation, and deployment of embedded systems, from requirements 
+        gathering to production and commercial deployment. Specialized in Motor Control and 
+        Battery Management Systems (BMS) for EVs, Robotics, and Consumer Electronics.
       </p>
       <p>
-        Hands-on expertise in 8/16/32-bit Microcontrollers and Microprocessors, with strong skills in Embedded C and 
-        low-level driver development. Proficient in embedded development tools (IDEs, emulators) and adept at debugging 
-        real-time problems.
+        Hands-on expertise in 8/16/32-bit Microcontrollers and Microprocessors, with strong 
+        skills in Embedded C and low-level driver development. Proficient in embedded 
+        development tools (IDEs, emulators) and adept at debugging real-time problems. 
       </p>
       <p>
-        Skilled in communication protocol integration SPI, I2C, UART, CAN, LIN, BLE, and Wi-Fi. Experienced in RTOS-based 
-        and bare-metal firmware development, including algorithm implementation, application development, and hardware bring-up.
+        Skilled in communication protocol integration SPI, I2C, UART, CAN, LIN, BLE, and Wi-Fi. 
+        Experienced in RTOS-based and bare-metal firmware development, including algorithm 
+        implementation, application development, and hardware board bring-up. 
       </p>
       <p>
-        Proficient in handling lab equipment such as Oscilloscopes, digital multimeters, DC voltage sources, electronic loads, 
-        function generators, and other testing instruments for debugging, validation, and hardware bring-up.
+        Proficient in handling lab equipment such as Oscilloscopes, digital multimeters, DC 
+        voltage sources, electronic loads, function generators, and other testing instruments 
+        for debugging, validation, and hardware bring-up.
       </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- Patent Section -->
-  <section>
-    <h2>Patent</h2>
-    <div class="patent">
-      <p><b>Speed Command System for BLDC Motor-based Ceiling Fan using Wall Mounted Universal Capacitive Step Type Fan Regulator</b></p>
-      <p>Patent Application No: 201941042375</p>
-      <p><a href="https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus" target="_blank">
-        View Patent Application Status
-      </a></p>
-    </div>
-  </section>
+    <!-- Patent -->
+    <section id="patent" class="slide">
+      <h1>Patent</h1>
+      <p>
+        <strong>Speed Command System for BLDC Motor-based Ceiling Fan using Wall Mounted Universal Capacitive Step Type Fan Regulator</strong><br>
+        Patent Application No: 201941042375<br>
+        <a href="https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus" target="_blank">
+          View Patent Status
+        </a>
+      </p>
+    </section>
 
-  <!-- Projects Section -->
-  <section>
-    <h2>Projects</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>Project 1: 48V & 72V BMS – EV Application</h3>
-        <div class="tooltip">
-          Designed a safety-focused BMS for 16S and 20S NMC/LFP battery packs with cell balancing, protection, SoC/SoH calculation, and CAN communication.
+    <!-- Projects -->
+    <section id="projects" class="slide">
+      <h1>Projects</h1>
+      <div class="projects-container">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-number">Project #1</div>
+          <div class="project-title">48V & 72V BMS – EV Application</div>
+          <div class="project-role">Role: Project lead</div>
+          <div class="tooltip">
+            Designed a safety-focused BMS for 16S & 20S NMC/LFP battery packs with OCV, Coulomb Counting-based SoC/SoH, cell balancing, and temperature measurement. Implemented fault handling for OV, UV, OTP, OCP. SPI daisy-chain & multi-protocol support (CAN, LIN, UART, SPI). ASIL-D & ISO 26262 compliant. UART bootloader & Python GUI.
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <h3>Project 2: PMSM Motor Control</h3>
-        <div class="tooltip">
-          Developed FOC and sensorless/sensored PMSM control algorithms with torque/speed regulation, protections, and EV applications.
-        </div>
-      </div>
-      <div class="card">
-        <h3>Project 3: BLDC Motor Control</h3>
-        <div class="tooltip">
-          Implemented sensorless trapezoidal control, fault handling, PWM optimization, and smart startup for e-bike and robotics applications.
-        </div>
-      </div>
-      <div class="card">
-        <h3>Project 4: Charger Communication</h3>
-        <div class="tooltip">
-          Designed CC-CV charging algorithm with CAN-controlled charger communication, ensuring safe charging for EV battery packs.
-        </div>
-      </div>
-      <div class="card">
-        <h3>Project 5: GUI-based Firmware Update Tool</h3>
-        <div class="tooltip">
-          Created a Python-based GUI for bootloader programming, real-time data logging, firmware updates, and validation of embedded systems.
-        </div>
-      </div>
-      <div class="card">
-        <h3>Project 6: Robotics Powertrain System</h3>
-        <div class="tooltip">
-          Designed BMS + Motor Control integration for robotics applications with real-time monitoring, protections, and seamless power management.
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Skills Section -->
-  <section>
-    <h2>Core Embedded Systems Skills</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>Embedded C & Low-Level Firmware</h3>
-        <div class="tooltip">
-          Strong experience in bare-metal and RTOS-based firmware for 8/16/32-bit MCUs and MPUs. Low-level driver development.
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-number">Project #2</div>
+          <div class="project-title">24V & 48V BMS – Robotics</div>
+          <div class="project-role">Role: Project lead</div>
+          <div class="tooltip">
+            BMS for 8S & 16S NMC/LFP packs with OCV & Coulomb Counting SoC/SoH, cell balancing, temperature measurement. OV, UV, OTP, OCP fault handling.
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <h3>RTOS & Task Management</h3>
-        <div class="tooltip">
-          FreeRTOS/RTOS scheduling, inter-task communication, synchronization, and real-time debugging.
-        </div>
-      </div>
-      <div class="card">
-        <h3>Hardware Bring-up & Debugging</h3>
-        <div class="tooltip">
-          Hands-on testing with oscilloscopes, multimeters, DC power supplies, loads, and function generators.
-        </div>
-      </div>
-      <div class="card">
-        <h3>Algorithm Implementation</h3>
-        <div class="tooltip">
-          BLDC/PMSM control, FOC, trapezoidal, field weakening, MPPT, PI loops, SoC/SoH, and fault detection.
-        </div>
-      </div>
-      <div class="card">
-        <h3>Battery Management Systems (BMS)</h3>
-        <div class="tooltip">
-          CC-CV charging, cell balancing, OCV/SoC/SoH monitoring, safety standards compliance, bootloader features.
-        </div>
-      </div>
-      <div class="card">
-        <h3>Communication & Tools</h3>
-        <div class="tooltip">
-          UART, SPI, I2C, CAN, LIN, BLE, Wi-Fi, Modbus. IDEs, Python, debuggers, Jira, validation, and HIL testing.
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Dinesh Babu. All Rights Reserved.</p>
-  </footer>
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-number">Project #3</div>
+          <div class="project-title">1kW & 3kW BLDC Motor Controller – EV</div>
+          <div class="project-role">Role: Project lead</div>
+          <div class="tooltip">
+            Bare-metal BLDC motor controller, HAL-based sensored control, FOC & trapezoidal, optimized PWM, overcurrent, overtemperature, undervoltage protections. UART diagnostics & CAN for BMS/VCU.
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-number">Project #4</div>
+          <div class="project-title">250W BLDC Motor Controller</div>
+          <div class="project-role">Role: Project lead</div>
+          <div class="tooltip">
+            36V DC driver for e-bikes, sensored FOC & trapezoidal algorithms, optimized for efficiency & reliability.
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card">
+          <div class="project-number">Project #5</div>
+          <div class="project-title">Low & High Voltage BLDC Ceiling Fan</div>
+          <div class="project-role">Role: Firmware Engineer</div>
+          <div class="tooltip">
+            24V PMSM drive with FOC, field weakening, MPPT, PI loops, high-voltage BLDC with NEC IR control, BLE/Wi-Fi, and capacitor-type fan speed control.
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card">
+          <div class="project-number">Project #6</div>
+          <div class="project-title">Door Open Timer</div>
+          <div class="project-role">Role: Firmware Engineer</div>
+          <div class="tooltip">
+            24V DC device to control elevator door opening within a set time after floor arrival. Acts as a backup if main lift board fails.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="core-skills" class="slide">
+      <h1>Core Embedded Systems Skills</h1>
+      <div class="card-container">
+        
+        <div class="card">
+          <h3>Embedded C & Low-Level Firmware</h3>
+          <div class="tooltip">
+            Strong experience in bare-metal and RTOS-based firmware for 8/16/32-bit microcontrollers and microprocessors.<br>
+            Low-level driver development
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>RTOS & Task Management</h3>
+          <div class="tooltip">
+            FreeRTOS/RTOS scheduling<br>
+            Inter-task communication & synchronization<br>
+            Real-time debugging
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Hardware Bring-up & Board Debugging</h3>
+          <div class="tooltip">
+            Hands-on testing with oscilloscopes, digital multimeters, DC power supplies, electronic loads, and function generators.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Algorithm Implementation</h3>
+          <div class="tooltip">
+            Sensorless/sensored BLDC, FOC, trapezoidal control, field weakening, MPPT, PI control loops, SoC/SoH calculation, fault detection
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Motor Control & Power Electronics</h3>
+          <div class="tooltip">
+            Motor Types: BLDC, PMSM, low/high voltage DC motors<br>
+            FOC, trapezoidal, sensored & sensorless control, PWM optimization, commutation strategies<br>
+            Control Features: Overcurrent, overvoltage, undervoltage, overtemperature protections, smooth startup, speed/torque regulation, smart speed control<br>
+            EV Applications: PMSM drives, BLDC controllers, servo motor drives, e-bike & robotics applications
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Battery Management Systems (BMS)</h3>
+          <div class="tooltip">
+            Battery Expertise: 8S, 16S, 20S NMC/LFP battery packs, CC-CV charging, cell balancing, OCV/SoC/SoH monitoring, temperature management<br>
+            Protocols & Communication: SPI (daisy-chain), UART, CAN, LIN, BLE, Wi-Fi for BMS & MCU interfacing<br>
+            Standards Compliance: ASIL-D, ISO 26262 for functional safety in automotive/EV applications<br>
+            Firmware Features: Fault handling (OV, UV, OTP, OCP), bootloader programming, GUI-based firmware updates
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Communication Protocols & Interfaces</h3>
+          <div class="tooltip">
+            UART, SPI, I2C, CAN, LIN, BLE, Wi-Fi, Modbus, peripheral integration
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Software Tools & Development</h3>
+          <div class="tooltip">
+            Embedded C, Python<br>
+            IDEs, emulators, debuggers, data loggers, GUI tools for validation and performance monitoring<br>
+            Project Management: Jira
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Testing & Validation</h3>
+          <div class="tooltip">
+            Hardware-in-the-loop testing, load simulation, real-time monitoring<br>
+            Data logging, algorithm validation, performance optimization
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
 </body>
 </html>
+
 
 
 
