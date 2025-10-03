@@ -23,6 +23,7 @@
       scroll-snap-type: y mandatory;
     }
 
+    /* Slide styling */
     .slide {
       min-height: 100vh;
       width: 100%;
@@ -47,28 +48,28 @@
       background-color: #007bff;
       color: white;
       text-align: left;
+      justify-content: flex-start;
       padding-top: 60px;
       padding-left: 10%;
       padding-right: 10%;
     }
-
     #about h1 { font-size: 2rem; margin-bottom: 10px; }
     #about h2.title { font-size: 1.2rem; font-weight: normal; margin: 8px 0; }
-    #about .contact-info {
+    #about h2.contact-info {
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin: 8px 0;
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
       align-items: center;
-      font-size: 1.1rem;
-      margin-bottom: 8px;
     }
-    #about .contact-info a {
-      color: #ffffff;
-      font-weight: bold;
+    #about h2.contact-info a {
+      color: white;
       text-decoration: none;
+      font-weight: bold;
     }
-    #about .contact-info a:hover { text-decoration: underline; }
-
+    #about h2.contact-info a:hover { text-decoration: underline; }
     #about p { font-size: 1rem; line-height: 1.6; margin: 12px 0; max-width: 900px; }
 
     /* Patent */
@@ -95,24 +96,24 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
+      position: relative;
     }
 
     .project-card {
       background: #007bff;
       color: #fff;
-      padding: 10px;
+      padding: 20px;
       border-radius: 12px;
       text-align: center;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
-      width: 300px;   /* fixed width */
-      height: 100px;  /* reduced height */
+      width: 300px;          /* fixed width */
+      min-height: 220px;     /* fixed minimum height */
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       z-index: 1;
-      overflow: hidden;
     }
 
     .project-card:hover {
@@ -122,14 +123,15 @@
     }
 
     .project-number { font-weight: bold; font-size: 1rem; opacity: 0.85; }
-    .project-title { font-size: 1.1rem; margin: 5px 0; font-weight: 600; }
-    .project-role { font-size: 0.9rem; opacity: 0.85; }
+    .project-title { font-size: 1.1rem; margin: 10px 0; font-weight: 600; }
+    .project-role { font-size: 0.95rem; opacity: 0.85; }
 
+    /* Tooltip */
     .project-card .tooltip {
       position: absolute;
       top: 100%;
       left: 0;
-      width: 320px;
+      width: 100%;
       background: #ffffff;
       color: #333;
       padding: 15px;
@@ -142,12 +144,12 @@
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
-      z-index: 20;
+      z-index: 10;
     }
 
     .project-card:hover .tooltip {
       opacity: 1;
-      max-height: 500px;
+      max-height: 500px;   /* tooltip can expand without affecting card size */
     }
 
     /* Core Skills */
@@ -186,6 +188,9 @@
       margin: 0;
     }
 
+    a { color: #007bff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
   </style>
 </head>
 <body>
@@ -200,10 +205,10 @@
     <!-- About -->
     <section id="about" class="slide">
       <h1>DINESH BABU R</h1>
-      <div class="contact-info">
+      <h2 class="contact-info">
         📧 <a href="mailto:rdineshdece@gmail.com">rdineshdece@gmail.com</a> | 
         📱 <a href="tel:+918122416549">+91 8122416549</a>
-      </div>
+      </h2>
       <h2 class="title">Senior Embedded Software Engineer – Motor Control | BMS | Electric Vehicles | Robotics</h2>
 
       <h1 style="margin-top:30px;">Professional Summary</h1>
@@ -231,6 +236,18 @@
       </p>
     </section>
 
+    <!-- Patent -->
+    <section id="patent" class="slide">
+      <h1>Patent</h1>
+      <p>
+        <strong>Speed Command System for BLDC Motor-based Ceiling Fan using Wall Mounted Universal Capacitive Step Type Fan Regulator</strong><br>
+        Patent Application No: 201941042375<br>
+        <a href="https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus" target="_blank">
+          View Patent Status
+        </a>
+      </p>
+    </section>
+
     <!-- Projects -->
     <section id="projects" class="slide">
       <h1>Projects</h1>
@@ -238,34 +255,46 @@
         <!-- Project 1 -->
         <div class="project-card">
           <div class="project-number">Project #1</div>
-          <div class="project-title">48V & 72V BMS – EV Application</div>
+          <div class="project-title">48V & 72V Battery Management System – EV Application</div>
           <div class="project-role">Role: Project lead</div>
           <div class="tooltip">
             Designed a safety-focused BMS for 16S and 20S NMC/LFP battery packs with OCV and 
             Coulomb Counting-based SoC, SoH, cell balancing, and temperature measurement. 
             Implemented fault handling for OV, UV, OTP, and OCP. Developed SPI-based daisy-chain 
-            communication for slave boards and multi-protocol support including CAN, LIN, UART, SPI. 
-            ASIL-D & ISO 26262 compliant. UART bootloader with Python GUI for firmware updates.
+            communication for slave boards and enabled multi-protocol support including CAN, LIN, 
+            UART, and SPI. Designed the BMS controller in compliance with ASIL-D and ISO 26262 
+            standards. Integrated UART-based bootloader programming with a custom Python GUI for 
+            firmware updates.
           </div>
         </div>
 
         <!-- Project 2 -->
         <div class="project-card">
           <div class="project-number">Project #2</div>
-          <div class="project-title">24V & 48V BMS – Robotics</div>
+          <div class="project-title">24V & 48V Battery Management System - Robotics Application</div>
           <div class="project-role">Role: Project lead</div>
           <div class="tooltip">
-            Designed BMS for 8S & 16S NMC/LFP packs with SoC/SoH, cell balancing, and temperature measurement. Fault handling: OV, UV, OTP, OCP.
+            Designed a safety-focused BMS for 8S and 16S NMC/LFP battery packs with OCV and Coulomb 
+            Counting-based SoC, SoH, cell balancing, and temperature measurement. Implemented fault 
+            handling for OV, UV, OTP, and OCP.
           </div>
         </div>
 
         <!-- Project 3 -->
         <div class="project-card">
           <div class="project-number">Project #3</div>
-          <div class="project-title">1kW & 3kW BLDC Motor Controller – EV</div>
+          <div class="project-title">1kW & 3kW BLDC Motor Controller – EV Application</div>
           <div class="project-role">Role: Project lead</div>
           <div class="tooltip">
-            Bare-metal 1kW BLDC motor controller using HAL, sensored control, FOC & trapezoidal methods. Optimized PWM & commutation. UART diagnostics & CAN communication with BMS & VCU. Multiple e-bike modes: Throttle, Cruise, Power, PAS.
+            Designed and developed a bare-metal 1kW BLDC motor controller for electric mobility 
+            applications, implementing HAL-based sensored control using trapezoidal and FOC methods 
+            for efficient and reliable operation. Optimized PWM and commutation strategies to ensure 
+            smooth performance across varying loads, integrating protection features such as 
+            overcurrent, overtemperature, and undervoltage handling. Developed a UART-based interface 
+            for diagnostics and control and led testing and validation through load simulations and 
+            real-time monitoring tools. Supported multiple e-bike riding modes including Throttle, 
+            Cruise, Power, and Pedal Assist (PAS). Implemented CAN communication between the MCU, BMS, 
+            and VCU for seamless EV integration.
           </div>
         </div>
 
@@ -275,17 +304,27 @@
           <div class="project-title">250W BLDC Motor Controller</div>
           <div class="project-role">Role: Project lead</div>
           <div class="tooltip">
-            36V DC driver for BLDC hub motors. Sensored FOC & Trapezoidal BLDC control for efficient e-bike operation.
+            The 36V DC driver powers and controls low-voltage BLDC hub motors commonly used in 
+            e-bikes for their efficiency and reliability. Sensored Field-Oriented Control (FOC) and 
+            Trapezoidal BLDC algorithms are key motor control techniques that optimize power delivery 
+            and enhance motor performance in e-bikes.
           </div>
         </div>
 
         <!-- Project 5 -->
         <div class="project-card">
           <div class="project-number">Project #5</div>
-          <div class="project-title">Low & High Voltage BLDC Ceiling Fan</div>
+          <div class="project-title">Low and High Voltage BLDC Ceiling Fan</div>
           <div class="project-role">Role: Firmware Engineer</div>
           <div class="tooltip">
-            24V PMSM & 90–440V AC drive, FOC with field weakening, MPPT, PI loops, high current injection. BLE/Wi-Fi remote control. Capacitor-based fan regulator integration.
+            Designed a low-cost 24V PMSM drive powered by a 230V AC driver using single, two, and 
+            three-shunt current control with FOC algorithm. Implemented field weakening, MPPT, and 
+            three-layer PI loops for smooth and efficient operation. Added high current injection for 
+            startup, NEC IR control, and BLE/Wi-Fi (Modbus) for remote speed management. Enabled BLDC 
+            speed control via capacitor-type fan regulators with step change and position detection, 
+            overcoming fixed SMPS voltage limitations. Developed a high-voltage ceiling fan system using 
+            a 90–440V AC driver to run sensored and sensorless HV-BLDC motors with single-shunt control. 
+            Delivered high-performance, cost-effective solutions for the Indian market.
           </div>
         </div>
 
@@ -295,9 +334,11 @@
           <div class="project-title">Door Open Timer</div>
           <div class="project-role">Role: Firmware Engineer</div>
           <div class="tooltip">
-            24V DC device controls elevator door opening with backup activation in case of main controller failure.
+            Developed a 24V DC device to control elevator door opening within a set time after floor
+            arrival. Designed as a backup to activate the door if the main lift control board fails.
           </div>
         </div>
+
       </div>
     </section>
 
@@ -309,22 +350,22 @@
         <div class="skill-card">
           <h2>Embedded C & Low-Level Firmware</h2>
           <ul>
-            <li>Bare-metal & RTOS-based firmware for 8/16/32-bit MCUs</li>
-            <li>Low-level driver development</li>
+            <li>Bare-metal & RTOS-based firmware</li>
+            <li>8/16/32-bit MCUs & Microprocessors</li>
           </ul>
         </div>
 
         <div class="skill-card">
           <h2>RTOS & Task Management</h2>
           <ul>
-            <li>FreeRTOS/RTOS scheduling</li>
+            <li>FreeRTOS/RTOS task scheduling</li>
             <li>Inter-task communication & synchronization</li>
             <li>Real-time debugging</li>
           </ul>
         </div>
 
         <div class="skill-card">
-          <h2>Hardware Bring-up & Board Debugging</h2>
+          <h2>Hardware Bring-up & Debugging</h2>
           <ul>
             <li>Oscilloscopes, multimeters, DC power supplies</li>
             <li>Electronic loads & function generators</li>
@@ -364,6 +405,7 @@
   </div>
 </body>
 </html>
+
 
 
 
