@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinesh Babu R | Portfolio</title>
+  <title>DINESH BABU™ | Portfolio</title>
   <style>
     body, html {
       margin: 0;
@@ -46,6 +46,7 @@
       text-align: left;
       padding: 60px 10%;
     }
+
     #about h1 { font-size: 2rem; margin-bottom: 10px; }
     #about .contact-info {
       display: flex;
@@ -73,7 +74,15 @@
     }
     #patent a { color: #ffffff; text-decoration: underline; }
 
-    /* Projects & Skills Cards */
+    /* Projects */
+    #projects {
+      background-color: #f5f5f5;
+      color: #333;
+      text-align: center;
+      padding: 60px 5%;
+    }
+    #projects h1 { text-align: center; margin-bottom: 30px; }
+
     .projects-container {
       display: flex;
       flex-wrap: wrap;
@@ -92,7 +101,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       width: 300px;  
-      min-height: 100px;  
+      height: 100px;  
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -141,7 +150,66 @@
       text-align: center;
       padding: 60px 5%;
     }
-    #core-skills h1 { margin-bottom: 30px; }
+
+    .skills-graphics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .skill-card {
+      background: #007bff;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: left;
+      cursor: pointer;
+      position: relative;
+      width: 300px;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      z-index: 5;
+    }
+
+    .skill-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .skill-tooltip {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      color: #333;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+
+    .skill-card:hover .skill-tooltip {
+      opacity: 1;
+      max-height: 1000px;
+    }
+
+    footer {
+      text-align:center; 
+      padding:20px; 
+      font-size:0.9rem; 
+      color:#555;
+    }
 
   </style>
 </head>
@@ -151,12 +219,13 @@
     <!-- Hero -->
     <section id="hero" class="slide">
       <h1>Welcome to My Portfolio</h1>
-      <p>Embedded Software Engineer | Motor Control | BMS | Electric Vehicle | Robotics</p>
+      <h2>DINESH BABU<sup>™</sup></h2>
+      <p>Embedded Software Engineer | Motor Control | BMS | Robotics</p>
     </section>
 
     <!-- About -->
     <section id="about" class="slide">
-      <h1>DINESH BABU R</h1>
+      <h1>DINESH BABU<sup>™</sup></h1>
       <div class="contact-info">
         📧 <a href="mailto:rdineshdece@gmail.com">rdineshdece@gmail.com</a> | 
         📱 <a href="tel:+918122416549">+91 8122416549</a>
@@ -203,7 +272,7 @@
     <section id="projects" class="slide">
       <h1>Projects</h1>
       <div class="projects-container">
-        <!-- Project 1 -->
+        <!-- Project cards 1-6 (expandable tooltips) -->
         <div class="project-card">
           <div class="project-number">Project #1</div>
           <div class="project-title">48V & 72V BMS – EV Application</div>
@@ -212,7 +281,7 @@
             Designed a safety-focused BMS for 16S & 20S NMC/LFP battery packs with OCV, Coulomb Counting-based SoC/SoH, cell balancing, and temperature measurement. Implemented fault handling for OV, UV, OTP, OCP. SPI daisy-chain & multi-protocol support (CAN, LIN, UART, SPI). ASIL-D & ISO 26262 compliant. UART bootloader & Python GUI.
           </div>
         </div>
-        <!-- Project 2 -->
+
         <div class="project-card">
           <div class="project-number">Project #2</div>
           <div class="project-title">24V & 48V BMS – Robotics</div>
@@ -221,7 +290,7 @@
             BMS for 8S & 16S NMC/LFP packs with OCV & Coulomb Counting SoC/SoH, cell balancing, temperature measurement. OV, UV, OTP, OCP fault handling.
           </div>
         </div>
-        <!-- Project 3 -->
+
         <div class="project-card">
           <div class="project-number">Project #3</div>
           <div class="project-title">1kW & 3kW BLDC Motor Controller – EV</div>
@@ -230,7 +299,7 @@
             Bare-metal BLDC motor controller, HAL-based sensored control, FOC & trapezoidal, optimized PWM, overcurrent, overtemperature, undervoltage protections. UART diagnostics & CAN for BMS/VCU.
           </div>
         </div>
-        <!-- Project 4 -->
+
         <div class="project-card">
           <div class="project-number">Project #4</div>
           <div class="project-title">250W BLDC Motor Controller</div>
@@ -239,7 +308,7 @@
             36V DC driver for e-bikes, sensored FOC & trapezoidal algorithms, optimized for efficiency & reliability.
           </div>
         </div>
-        <!-- Project 5 -->
+
         <div class="project-card">
           <div class="project-number">Project #5</div>
           <div class="project-title">Low & High Voltage BLDC Ceiling Fan</div>
@@ -248,7 +317,7 @@
             24V PMSM drive with FOC, field weakening, MPPT, PI loops, high-voltage BLDC with NEC IR control, BLE/Wi-Fi, and capacitor-type fan speed control.
           </div>
         </div>
-        <!-- Project 6 -->
+
         <div class="project-card">
           <div class="project-number">Project #6</div>
           <div class="project-title">Door Open Timer</div>
@@ -263,42 +332,42 @@
     <!-- Core Skills -->
     <section id="core-skills" class="slide">
       <h1>Core Embedded Systems Skills</h1>
-      <div class="projects-container">
+      <div class="skills-graphics">
 
-        <div class="project-card">
-          <div class="project-title">Embedded C & Low-Level Firmware</div>
-          <div class="tooltip">
+        <div class="skill-card">
+          <div class="skill-title">Embedded C & Low-Level Firmware</div>
+          <div class="skill-tooltip">
             • Strong experience in bare-metal and RTOS-based firmware for 8/16/32-bit microcontrollers and microprocessors.<br>
             • Low-level driver development
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-title">RTOS & Task Management</div>
-          <div class="tooltip">
+        <div class="skill-card">
+          <div class="skill-title">RTOS & Task Management</div>
+          <div class="skill-tooltip">
             • FreeRTOS/RTOS scheduling<br>
             • Inter-task communication & synchronization<br>
             • Real-time debugging
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-title">Hardware Bring-up & Board Debugging</div>
-          <div class="tooltip">
+        <div class="skill-card">
+          <div class="skill-title">Hardware Bring-up & Board Debugging</div>
+          <div class="skill-tooltip">
             • Hands-on testing with oscilloscopes, digital multimeters, DC power supplies, electronic loads, and function generators.
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-title">Algorithm Implementation</div>
-          <div class="tooltip">
+        <div class="skill-card">
+          <div class="skill-title">Algorithm Implementation</div>
+          <div class="skill-tooltip">
             • Sensorless/sensored BLDC, FOC, trapezoidal control, field weakening, MPPT, PI control loops, SoC/SoH calculation, fault detection
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-title">Motor Control & Power Electronics</div>
-          <div class="tooltip">
+        <div class="skill-card">
+          <div class="skill-title">Motor Control & Power Electronics</div>
+          <div class="skill-tooltip">
             • Motor Types: BLDC, PMSM, low/high voltage DC motors<br>
             • FOC, trapezoidal, sensored & sensorless control, PWM optimization, commutation strategies<br>
             • Control Features: Overcurrent, overvoltage, undervoltage, overtemperature protections, smooth startup, speed/torque regulation, smart speed control<br>
@@ -306,9 +375,9 @@
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-title">Battery Management Systems (BMS)</div>
-          <div class="tooltip">
+        <div class="skill-card">
+          <div class="skill-title">Battery Management Systems (BMS)</div>
+          <div class="skill-tooltip">
             • Battery Expertise: 8S, 16S, 20S NMC/LFP battery packs, CC-CV charging, cell balancing, OCV/SoC/SoH monitoring, temperature management<br>
             • Protocols & Communication: SPI (daisy-chain), UART, CAN, LIN, BLE, Wi-Fi for BMS & MCU interfacing<br>
             • Standards Compliance: ASIL-D, ISO 26262 for functional safety in automotive/EV applications<br>
@@ -316,25 +385,25 @@
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-title">Communication Protocols & Interfaces</div>
-          <div class="tooltip">
+        <div class="skill-card">
+          <div class="skill-title">Communication Protocols & Interfaces</div>
+          <div class="skill-tooltip">
             • UART, SPI, I2C, CAN, LIN, BLE, Wi-Fi, Modbus, peripheral integration
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-title">Software Tools & Development</div>
-          <div class="tooltip">
+        <div class="skill-card">
+          <div class="skill-title">Software Tools & Development</div>
+          <div class="skill-tooltip">
             • Embedded C, Python<br>
             • IDEs, emulators, debuggers, data loggers, GUI tools for validation and performance monitoring<br>
             • Project Management: Jira
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-title">Testing & Validation</div>
-          <div class="tooltip">
+        <div class="skill-card">
+          <div class="skill-title">Testing & Validation</div>
+          <div class="skill-tooltip">
             • Hardware-in-the-loop testing, load simulation, real-time monitoring<br>
             • Data logging, algorithm validation, performance optimization
           </div>
@@ -344,8 +413,13 @@
     </section>
 
   </div>
+
+  <footer>
+    &copy; 2025 DINESH BABU<sup>™</sup>. All rights reserved.
+  </footer>
 </body>
 </html>
+
 
 
 
