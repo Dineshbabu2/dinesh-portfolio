@@ -3,277 +3,269 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinesh Babu R | Portfolio</title>
+  <title>Dinesh Portfolio</title>
   <style>
-    body, html {
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: white;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #333;
     }
 
-    #slides {
-      width: 100%;
-      overflow-y: auto;
-      scroll-snap-type: y mandatory;
-    }
-
-    .slide {
-      min-height: 100vh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      scroll-snap-align: start;
-      text-align: center;
-      padding: 40px;
-      box-sizing: border-box;
-    }
-
-    /* Hero */
-    #hero {
-      background-color: white;
-      color: #007bff;
-    }
-
-    /* About */
-    #about {
-      background-color: #007bff;
-      color: white;
-      text-align: left;
-      padding: 60px 10%;
-    }
-
-    #about h1 { font-size: 2rem; margin-bottom: 10px; }
-    #about .contact-info {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      align-items: center;
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-    }
-    #about .contact-info a {
-      color: #ffffff;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    #about .contact-info a:hover { text-decoration: underline; }
-
-    #about p { font-size: 1rem; line-height: 1.6; margin: 12px 0; max-width: 900px; }
-
-    /* Patent */
-    #patent {
-      background-color: #007bff;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    #patent a { color: #ffffff; text-decoration: underline; }
-
-    /* Projects & Skills Common Design */
-    .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      position: relative;
-    }
-
-    .card {
-      background: #007bff;
+    header {
+      background: #222;
       color: #fff;
-      padding: 10px;
-      border-radius: 12px;
+      padding: 40px 20px;
       text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      width: 300px;  
-      height: 100px;  
+    }
+
+    header h1 {
+      margin: 10px 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 5px 0;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: #222;
+    }
+
+    /* Card Container */
+    .card-container {
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      z-index: 1;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-      z-index: 10;
+    /* Cards (Projects & Skills) */
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      width: 300px;
+      height: 120px;
+      padding: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
     }
 
-    .card-title { font-size: 1.1rem; margin: 5px 0; font-weight: 600; }
-    .card-sub { font-size: 0.9rem; opacity: 0.9; }
+    .card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #222;
+    }
 
-    .card .tooltip {
+    .tooltip {
       position: absolute;
       top: 100%;
       left: 0;
-      width: 300px;
-      background: #ffffff;
-      color: #333;
-      padding: 10px;
-      border-radius: 8px;
-      text-align: left;
-      font-size: 0.9rem;
-      line-height: 1.4;
+      width: 100%;
+      background: #fff;
+      padding: 15px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
       opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transform: translateY(-10px);
       transition: all 0.3s ease;
-      z-index: 100;
+      pointer-events: none;
+      z-index: 10;
     }
 
     .card:hover .tooltip {
       opacity: 1;
-      max-height: 600px;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
-    /* Section Titles */
-    #projects h1, #skills h1 { margin-bottom: 30px; }
+    /* About Section */
+    .about {
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Patent Section */
+    .patent {
+      background: #eef7ff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .patent a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .patent a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
-  <div id="slides">
+  <!-- Hero Section -->
+  <header>
+    <h1>Welcome to My Portfolio</h1>
+    <p>Embedded Software Engineer | Motor Control | BMS | Electric Vehicle | Robotics</p>
+    <h2>DINESH BABU R</h2>
+    <p>📧 rdineshdece@gmail.com | 📱 +91 8122416549</p>
+    <p>Senior Embedded Software Engineer – Motor Control | BMS | EV | Robotics</p>
+  </header>
 
-    <!-- Hero -->
-    <section id="hero" class="slide">
-      <h1>Welcome to My Portfolio</h1>
-      <p>Embedded Software Engineer | Motor Control | BMS | Robotics</p>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="slide">
-      <h1>DINESH BABU R</h1>
-      <div class="contact-info">
-        📧 <a href="mailto:rdineshdece@gmail.com">rdineshdece@gmail.com</a> | 
-        📱 <a href="tel:+918122416549">+91 8122416549</a>
-      </div>
-      <h2>Senior Embedded Software Engineer – Motor Control | BMS | EV | Robotics</h2>
-
-      <h1 style="margin-top:30px;">Professional Summary</h1>
+  <!-- About Section -->
+  <section>
+    <h2>Professional Summary</h2>
+    <div class="about">
       <p>
-        Results-driven Embedded Software Engineer with 8+ years of experience in the design, 
-        development, validation, and deployment of embedded systems, from requirements 
-        gathering to production and commercial deployment. Specialized in Motor Control and 
-        Battery Management Systems (BMS) for EVs, Robotics, and Consumer Electronics.
+        Results-driven Embedded Software Engineer with 8+ years of experience in the design, development, validation, 
+        and deployment of embedded systems, from requirements gathering to production and commercial deployment. 
+        Specialized in Motor Control and Battery Management Systems (BMS) for EVs, Robotics, and Consumer Electronics.
       </p>
-    </section>
-
-    <!-- Patent -->
-    <section id="patent" class="slide">
-      <h1>Patent</h1>
       <p>
-        <strong>Speed Command System for BLDC Motor-based Ceiling Fan using Wall Mounted Universal Capacitive Step Type Fan Regulator</strong><br>
-        Patent Application No: 201941042375<br>
-        <a href="https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus" target="_blank">
-          View Patent Status
-        </a>
+        Hands-on expertise in 8/16/32-bit Microcontrollers and Microprocessors, with strong skills in Embedded C and 
+        low-level driver development. Proficient in embedded development tools (IDEs, emulators) and adept at debugging 
+        real-time problems.
       </p>
-    </section>
+      <p>
+        Skilled in communication protocol integration SPI, I2C, UART, CAN, LIN, BLE, and Wi-Fi. Experienced in RTOS-based 
+        and bare-metal firmware development, including algorithm implementation, application development, and hardware bring-up.
+      </p>
+      <p>
+        Proficient in handling lab equipment such as Oscilloscopes, digital multimeters, DC voltage sources, electronic loads, 
+        function generators, and other testing instruments for debugging, validation, and hardware bring-up.
+      </p>
+    </div>
+  </section>
 
-    <!-- Projects -->
-    <section id="projects" class="slide">
-      <h1>Projects</h1>
-      <div class="cards-container">
-        <div class="card">
-          <div class="card-title">48V & 72V BMS – EV Application</div>
-          <div class="card-sub">Role: Project Lead</div>
-          <div class="tooltip">Designed a safety-focused BMS...</div>
+  <!-- Patent Section -->
+  <section>
+    <h2>Patent</h2>
+    <div class="patent">
+      <p><b>Speed Command System for BLDC Motor-based Ceiling Fan using Wall Mounted Universal Capacitive Step Type Fan Regulator</b></p>
+      <p>Patent Application No: 201941042375</p>
+      <p><a href="https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus" target="_blank">
+        View Patent Application Status
+      </a></p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section>
+    <h2>Projects</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Project 1: 48V & 72V BMS – EV Application</h3>
+        <div class="tooltip">
+          Designed a safety-focused BMS for 16S and 20S NMC/LFP battery packs with cell balancing, protection, SoC/SoH calculation, and CAN communication.
         </div>
-        <!-- Repeat for other 5 projects -->
       </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="slide">
-      <h1>Core Embedded Systems Skills</h1>
-      <div class="cards-container">
-        
-        <div class="card">
-          <div class="card-title">Embedded C & Low-Level Firmware</div>
-          <div class="tooltip">
-            Strong experience in bare-metal and RTOS-based firmware for 8/16/32-bit microcontrollers and microprocessors.<br>
-            Low-level driver development.
-          </div>
+      <div class="card">
+        <h3>Project 2: PMSM Motor Control</h3>
+        <div class="tooltip">
+          Developed FOC and sensorless/sensored PMSM control algorithms with torque/speed regulation, protections, and EV applications.
         </div>
-
-        <div class="card">
-          <div class="card-title">RTOS & Task Management</div>
-          <div class="tooltip">
-            FreeRTOS/RTOS scheduling.<br>
-            Inter-task communication & synchronization.<br>
-            Real-time debugging.
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Hardware Bring-up & Debugging</div>
-          <div class="tooltip">
-            Hands-on testing with oscilloscopes, multimeters, DC power supplies, electronic loads, and function generators.
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Algorithm Implementation</div>
-          <div class="tooltip">
-            Sensorless/sensored BLDC, FOC, trapezoidal control, field weakening, MPPT, PI loops, SoC/SoH calculation, fault detection.
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Motor Control & Power Electronics</div>
-          <div class="tooltip">
-            Motor Types: BLDC, PMSM, low/high voltage DC motors.<br>
-            Control Techniques: FOC, trapezoidal, sensored/sensorless.<br>
-            Features: Protection, smooth startup, regulation.<br>
-            EV Applications: PMSM drives, BLDC controllers, robotics.
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Battery Management Systems (BMS)</div>
-          <div class="tooltip">
-            Expertise in 8S/16S/20S packs, CC-CV charging, balancing, SoC/SoH.<br>
-            Communication: SPI, UART, CAN, LIN, BLE, Wi-Fi.<br>
-            Standards: ASIL-D, ISO 26262.<br>
-            Features: Fault handling, bootloader, GUI.
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Communication Protocols</div>
-          <div class="tooltip">
-            UART, SPI, I2C, CAN, LIN, BLE, Wi-Fi, Modbus, peripheral integration.
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Software Tools</div>
-          <div class="tooltip">
-            Embedded C, Python.<br>
-            IDEs, emulators, debuggers, loggers, GUI tools.<br>
-            Project Management: Jira.
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Testing & Validation</div>
-          <div class="tooltip">
-            Hardware-in-loop testing, load simulation, monitoring, data logging, algorithm validation, performance optimization.
-          </div>
-        </div>
-
       </div>
-    </section>
+      <div class="card">
+        <h3>Project 3: BLDC Motor Control</h3>
+        <div class="tooltip">
+          Implemented sensorless trapezoidal control, fault handling, PWM optimization, and smart startup for e-bike and robotics applications.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Project 4: Charger Communication</h3>
+        <div class="tooltip">
+          Designed CC-CV charging algorithm with CAN-controlled charger communication, ensuring safe charging for EV battery packs.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Project 5: GUI-based Firmware Update Tool</h3>
+        <div class="tooltip">
+          Created a Python-based GUI for bootloader programming, real-time data logging, firmware updates, and validation of embedded systems.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Project 6: Robotics Powertrain System</h3>
+        <div class="tooltip">
+          Designed BMS + Motor Control integration for robotics applications with real-time monitoring, protections, and seamless power management.
+        </div>
+      </div>
+    </div>
+  </section>
 
-  </div>
+  <!-- Skills Section -->
+  <section>
+    <h2>Core Embedded Systems Skills</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Embedded C & Low-Level Firmware</h3>
+        <div class="tooltip">
+          Strong experience in bare-metal and RTOS-based firmware for 8/16/32-bit MCUs and MPUs. Low-level driver development.
+        </div>
+      </div>
+      <div class="card">
+        <h3>RTOS & Task Management</h3>
+        <div class="tooltip">
+          FreeRTOS/RTOS scheduling, inter-task communication, synchronization, and real-time debugging.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Hardware Bring-up & Debugging</h3>
+        <div class="tooltip">
+          Hands-on testing with oscilloscopes, multimeters, DC power supplies, loads, and function generators.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Algorithm Implementation</h3>
+        <div class="tooltip">
+          BLDC/PMSM control, FOC, trapezoidal, field weakening, MPPT, PI loops, SoC/SoH, and fault detection.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Battery Management Systems (BMS)</h3>
+        <div class="tooltip">
+          CC-CV charging, cell balancing, OCV/SoC/SoH monitoring, safety standards compliance, bootloader features.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Communication & Tools</h3>
+        <div class="tooltip">
+          UART, SPI, I2C, CAN, LIN, BLE, Wi-Fi, Modbus. IDEs, Python, debuggers, Jira, validation, and HIL testing.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Dinesh Babu. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
+
 
 
