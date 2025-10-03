@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio - About | Experience | Skills</title>
+  <title>Portfolio - Hero | About | Experience | Skills</title>
   <style>
     :root {
-      --bg: #0033cc;          /* blue background */
+      --bg: #0033cc;
       --bg-dark: #002a99;
       --text: #ffffff;
       --card: rgba(255, 255, 255, 0.12);
@@ -19,10 +19,10 @@
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
       color: var(--text);
       background: linear-gradient(135deg, var(--bg) 0%, var(--bg-dark) 100%);
-      overflow: hidden; /* keep the fixed nav visible and scroll only inside slides container */
+      overflow: hidden;
     }
 
-    /* Fixed top navigation */
+    /* Fixed top nav */
     nav {
       position: fixed;
       top: 0;
@@ -48,23 +48,23 @@
     nav a:hover, nav a.active {
       background: rgba(255, 255, 255, 0.25);
       color: #001a66;
-      text-decoration: none;
     }
 
-    /* Slides container (vertical, snap-scrolling) */
+    /* Slides container (horizontal) */
     #slides {
       height: 100vh;
       width: 100%;
-      overflow-y: auto;
-      scroll-snap-type: y mandatory;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-      padding-top: 56px; /* to account for fixed nav so content isn't hidden */
+      display: flex;
+      padding-top: 56px; /* offset for nav */
     }
 
-    /* Each slide fills the viewport and snaps into place */
     .slide {
-      height: calc(100vh - 0px);
-      min-height: 100vh;
+      flex: 0 0 100%;
+      height: calc(100vh - 56px);
       scroll-snap-align: start;
       display: grid;
       place-items: center;
@@ -81,27 +81,10 @@
       border: 1px solid rgba(255,255,255,.25);
     }
 
-    h1 {
-      margin: 0 0 6px;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-    }
-    h2 {
-      font-size: 1.25rem;
-      margin: 0 0 12px;
-      letter-spacing: 1px;
-    }
+    h1 { margin: 0 0 6px; font-size: 1.8rem; }
+    h2 { font-size: 1.25rem; margin: 0 0 12px; }
     p { line-height: 1.6; color: #f5f7fb; }
 
-    /* Section-specific styling for visual distinction (subtle) */
-    #about { background: rgba(0,51,204,0.75); }
-    #experience { background: rgba(0,51,204,0.85); }
-    #skills { background: rgba(0,51,204,0.75); }
-
-    /* Content tweaks for readability on white text over blue */
-    .slide-inner h1, .slide-inner h2, .slide-inner p { color: white; }
-
-    /* Optional: small responsive tweaks */
     @media (max-width: 700px) {
       .slide-inner { padding: 28px; }
       h1 { font-size: 1.4rem; }
@@ -110,62 +93,55 @@
 </head>
 <body>
 
-<nav aria-label="Main">
-  <a href="#about" class="nav-link" data-target="about">About</a>
-  <a href="#experience" class="nav-link" data-target="experience">Professional Experience</a>
-  <a href="#skills" class="nav-link" data-target="skills">Skills</a>
+<nav>
+  <a href="#hero" class="nav-link">Hero</a>
+  <a href="#about" class="nav-link">About</a>
+  <a href="#experience" class="nav-link">Experience</a>
+  <a href="#skills" class="nav-link">Skills</a>
 </nav>
 
-<div id="slides" role="main" aria-label="Vertical sections">
-  <section class="slide" id="about" aria-labelledby="about-title">
-    <div class="slide-inner">
-      <h1 id="about-title">About</h1>
-      <h2>Your Name — Role</h2>
-      <p>Hi, I’m Your Name, an experienced software/embedded engineer focused on delivering robust solutions for complex hardware and software systems. I design, develop, and validate products from concept to production with an emphasis on quality, maintainability, and performance.</p>
-      <p>Highlights: embedded software, firmware development, product bring-up, cross-functional collaboration, and a customer-focused mindset.</p>
+<div id="slides">
+  <section class="slide" id="hero">
+    <div class="slide-inner" style="text-align:center;">
+      <h1>Hi, I’m Dinesh 👋</h1>
+      <h2>Embedded Software Engineer</h2>
+      <p>Specialized in Battery Management Systems (BMS) and Motor Control for EVs and Robotics.</p>
     </div>
   </section>
 
-  <section class="slide" id="experience" aria-labelledby="experience-title">
+  <section class="slide" id="about">
     <div class="slide-inner">
-      <h1 id="experience-title">Professional Experience</h1>
-      <h2>Selected Roles</h2>
+      <h1>About</h1>
+      <p>I design and develop embedded systems, from hardware bring-up to production deployment. Passionate about solving real-world engineering challenges with clean architecture and efficient code.</p>
+    </div>
+  </section>
+
+  <section class="slide" id="experience">
+    <div class="slide-inner">
+      <h1>Experience</h1>
       <ul>
-        <li>
-          <strong>Embedded Firmware Engineer</strong> — Company A
-          <br>Jan 2023 – Feb 2025
-          <br>Client: Lenovo / Domain: Server Storage Tech
-        </li>
-        <li>
-          <strong>Fullstack Developer</strong> — Company B
-          <br>Jun 2022 – Jan 2023
-          <br>Client: Internal / Domain: Full Stack Development
-        </li>
+        <li><strong>Embedded Firmware Engineer</strong> — Company A (2023–2025)</li>
+        <li><strong>Fullstack Developer</strong> — Company B (2022–2023)</li>
       </ul>
-      <p>Key contributions include system-level architecture, driver development, performance optimizations, and cross-team collaboration to meet aggressive delivery timelines.</p>
     </div>
   </section>
 
-  <section class="slide" id="skills" aria-labelledby="skills-title">
+  <section class="slide" id="skills">
     <div class="slide-inner">
-      <h1 id="skills-title">Skills</h1>
-      <h2>Core Competencies</h2>
+      <h1>Skills</h1>
       <ul style="columns: 2; column-gap: 40px;">
         <li>C/C++ Embedded Systems</li>
         <li>RTOS / Bare-metal</li>
-        <li>Firmware Development & Debugging</li>
+        <li>Firmware Debugging</li>
         <li>CAN, SPI, I2C, UART, BLE</li>
-        <li>Python, Scripting, Automation</li>
-        <li>JavaScript / Web Tech</li>
-        <li>Continuous Integration / Testing</li>
-        <li>Hardware Bring-up & Measurement</li>
+        <li>Python / Automation</li>
+        <li>PCB Bring-up</li>
       </ul>
     </div>
   </section>
 </div>
 
 <script>
-  // Keyboard navigation: Arrow Up/Down or Page Up/Down to move between slides
   (function () {
     const slides = document.querySelectorAll('.slide');
     const slidesContainer = document.getElementById('slides');
@@ -175,62 +151,49 @@
       if (i < 0) i = 0;
       if (i >= slides.length) i = slides.length - 1;
       index = i;
-      // Scroll the slides container by viewport height
-      slidesContainer.scrollTo({ top: i * window.innerHeight, behavior: 'smooth' });
-      updateActiveNav();
+      slidesContainer.scrollTo({ left: i * window.innerWidth, behavior: 'smooth' });
+      updateNav();
     }
 
-    function updateActiveNav() {
+    function updateNav() {
       const active = slides[index].id;
       document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
       const current = document.querySelector('nav a[href="#' + active + '"]');
       if (current) current.classList.add('active');
     }
 
-    // Listen to wheel/scroll to update index (debounce to avoid rapid changes)
-    let ticking = false;
+    // Detect scroll
     slidesContainer.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const newIndex = Math.round(slidesContainer.scrollTop / window.innerHeight);
-          if (newIndex !== index) {
-            index = newIndex;
-            updateActiveNav();
-          }
-          ticking = false;
-        });
-        ticking = true;
+      const newIndex = Math.round(slidesContainer.scrollLeft / window.innerWidth);
+      if (newIndex !== index) {
+        index = newIndex;
+        updateNav();
       }
     });
 
-    // Keyboard navigation
+    // Keyboard nav
     window.addEventListener('keydown', (e) => {
-      if (['ArrowDown', 'PageDown'].includes(e.key)) {
-        e.preventDefault();
+      if (['ArrowRight', 'PageDown'].includes(e.key)) {
         goTo(index + 1);
-      } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
-        e.preventDefault();
+      } else if (['ArrowLeft', 'PageUp'].includes(e.key)) {
         goTo(index - 1);
       }
     });
 
-    // Click navigation (override default jump to keep within slides container)
+    // Nav clicks
     document.querySelectorAll('nav a').forEach(a => {
       a.addEventListener('click', (evt) => {
         evt.preventDefault();
         const targetId = a.getAttribute('href').substring(1);
-        const targetEl = document.getElementById(targetId);
-        if (targetEl) {
-          const targetIndex = Array.from(slides).indexOf(targetEl);
-          if (targetIndex !== -1) goTo(targetIndex);
-        }
+        const targetIndex = Array.from(slides).findIndex(s => s.id === targetId);
+        if (targetIndex !== -1) goTo(targetIndex);
       });
     });
 
-    // Initialize active state on load
-    updateActiveNav();
+    updateNav();
   })();
 </script>
 
 </body>
 </html>
+
