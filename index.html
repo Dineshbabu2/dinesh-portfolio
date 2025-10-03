@@ -25,7 +25,7 @@
 
     /* Slide styling */
     .slide {
-      height: 100vh;
+      min-height: 100vh;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -52,7 +52,6 @@
       padding-top: 60px;
       padding-left: 10%;
       padding-right: 10%;
-      overflow-y: auto;
     }
     #about h1 { font-size: 2rem; margin-bottom: 10px; }
     #about h2 { font-size: 1.2rem; font-weight: normal; margin: 8px 0; }
@@ -63,7 +62,6 @@
       background-color: #007bff;
       color: white;
       text-align: center;
-      justify-content: center;
       padding: 60px 20px;
     }
     #patent a { color: #ffffff; text-decoration: underline; }
@@ -75,7 +73,6 @@
       text-align: center;
       justify-content: flex-start;
       padding: 60px 5%;
-      margin-top: 20px;
     }
     #projects h1 { text-align: center; margin-bottom: 30px; }
 
@@ -84,7 +81,7 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
-      margin-top: 30px;
+      position: relative;
     }
 
     .project-card {
@@ -94,48 +91,45 @@
       border-radius: 12px;
       text-align: center;
       cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative; /* for tooltip positioning */
       min-width: 250px;
       max-width: 300px;
-      margin-bottom: 20px;
     }
+
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.35);
     }
 
-    .project-number {
-      font-weight: bold;
-      font-size: 1rem;
-      opacity: 0.85;
-    }
-    .project-title {
-      font-size: 1.1rem;
-      margin: 10px 0;
-      font-weight: 600;
-    }
-    .project-role {
-      font-size: 0.95rem;
-      opacity: 0.85;
-    }
+    .project-number { font-weight: bold; font-size: 1rem; opacity: 0.85; }
+    .project-title { font-size: 1.1rem; margin: 10px 0; font-weight: 600; }
+    .project-role { font-size: 0.95rem; opacity: 0.85; }
 
-    /* Tooltip inside each project card */
+    /* Tooltip */
     .project-card .tooltip {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, opacity 0.5s ease;
-      margin-top: 10px;
+      position: absolute;       /* absolute so it doesn't push other cards */
+      top: 100%;                /* below the card */
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      color: #333;
+      padding: 15px;
+      border-radius: 8px;
       text-align: left;
       font-size: 0.9rem;
       line-height: 1.4;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      z-index: 10;
     }
 
-    /* Only expand the tooltip of the hovered card */
     .project-card:hover .tooltip {
-      max-height: 500px;
       opacity: 1;
+      max-height: 500px;
     }
 
     /* Skills */
@@ -175,7 +169,7 @@
       <p>Embedded Software Engineer | Motor Control | BMS | Robotics</p>
     </section>
 
-    <!-- About / Professional Summary -->
+    <!-- About -->
     <section id="about" class="slide">
       <h1>DINESH BABU R</h1>
       <h2>📧 <a href="mailto:rdineshdece@gmail.com">rdineshdece@gmail.com</a> | 
@@ -331,3 +325,4 @@
   </div>
 </body>
 </html>
+
