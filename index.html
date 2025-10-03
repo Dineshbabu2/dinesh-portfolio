@@ -13,23 +13,40 @@
       color: #333;
     }
 
-    header {
-      background: #2c3e50;
-      color: #fff;
-      padding: 20px 0;
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, #2c3e50, #34495e);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    /* About Section */
+    .about {
+      background: #fff;
+      padding: 40px 20px;
       text-align: center;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 2em;
+    .about h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1em;
+      line-height: 1.6;
     }
 
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-    }
-
+    /* Container */
     .container {
       width: 90%;
       max-width: 1200px;
@@ -71,7 +88,7 @@
     }
 
     .tooltip {
-      position: relative;  /* Changed from absolute */
+      position: relative;
       opacity: 0;
       max-height: 0;
       overflow: hidden;
@@ -100,14 +117,43 @@
       color: #2c3e50;
     }
 
-    .skills ul {
-      list-style-type: square;
-      margin: 10px 0 20px 20px;
-      padding: 0;
+    .skill-bar {
+      background: #ecf0f1;
+      border-radius: 20px;
+      margin: 10px 0;
+      height: 20px;
+      width: 100%;
+      overflow: hidden;
     }
+    .skill-progress {
+      height: 100%;
+      text-align: right;
+      padding-right: 10px;
+      color: white;
+      font-size: 0.8em;
+      line-height: 20px;
+    }
+    .embedded { width: 95%; background: #2980b9; }
+    .rtos { width: 90%; background: #27ae60; }
+    .debug { width: 92%; background: #8e44ad; }
+    .algorithm { width: 88%; background: #d35400; }
+    .motor { width: 93%; background: #16a085; }
+    .bms { width: 90%; background: #c0392b; }
+    .protocols { width: 87%; background: #2c3e50; }
+    .tools { width: 85%; background: #7f8c8d; }
+    .testing { width: 89%; background: #f39c12; }
 
-    .skills ul li {
-      margin-bottom: 8px;
+    /* Patents */
+    .patents {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 30px;
+    }
+    .patents ul {
+      list-style: square;
+      margin-left: 20px;
     }
 
     footer {
@@ -120,12 +166,27 @@
   </style>
 </head>
 <body>
-  <header>
+
+  <!-- Hero -->
+  <section class="hero">
     <h1>Dinesh Babu</h1>
     <p>Embedded Software Engineer | BMS & Motor Control Specialist</p>
-  </header>
+    <p>Email: dinesh@example.com | Mobile: +91-9876543210</p>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <h2>About Me</h2>
+    <p>
+      Results-driven Embedded Software Engineer with 8+ years of expertise in Embedded Systems, 
+      Motor Control, and Battery Management Systems. Specialized in designing and developing 
+      robust firmware and real-time control algorithms for EVs, robotics, and industrial applications. 
+      Experienced in RTOS, low-level firmware, communication protocols, and safety-critical systems.
+    </p>
+  </section>
 
   <div class="container">
+
     <!-- Projects -->
     <h2>Projects</h2>
     <div class="projects">
@@ -176,56 +237,40 @@
     <h2>Core Embedded Systems Skills</h2>
     <div class="skills">
       <h3>Embedded C & Low-Level Firmware Development</h3>
-      <ul>
-        <li>Strong experience in bare-metal and RTOS-based firmware for 8/16/32-bit microcontrollers and microprocessors.</li>
-      </ul>
+      <div class="skill-bar"><div class="skill-progress embedded">95%</div></div>
 
       <h3>RTOS & Task Management</h3>
-      <ul>
-        <li>FreeRTOS/RTOS task scheduling, inter-task communication, synchronization, and real-time debugging.</li>
-      </ul>
+      <div class="skill-bar"><div class="skill-progress rtos">90%</div></div>
 
       <h3>Hardware Bring-up & Board-Level Debugging</h3>
-      <ul>
-        <li>Hands-on testing with oscilloscopes, digital multimeters, DC power supplies, electronic loads, and function generators.</li>
-      </ul>
+      <div class="skill-bar"><div class="skill-progress debug">92%</div></div>
 
       <h3>Algorithm Implementation</h3>
-      <ul>
-        <li>Sensorless/sensored BLDC, FOC, trapezoidal control, field weakening, MPPT, PI control loops, SoC/SoH calculation, fault detection.</li>
-      </ul>
+      <div class="skill-bar"><div class="skill-progress algorithm">88%</div></div>
 
       <h3>Motor Control & Power Electronics</h3>
-      <ul>
-        <li>Motor Types: BLDC, PMSM, low/high voltage DC motors.</li>
-        <li>Techniques: FOC, trapezoidal, sensored & sensorless control, PWM optimization, commutation strategies.</li>
-        <li>Control Features: Overcurrent, overvoltage, undervoltage, overtemperature protections, smooth startup, speed/torque regulation, smart speed control.</li>
-        <li>EV Applications: PMSM drives, BLDC controllers, servo motor drives, e-bike & robotics applications.</li>
-      </ul>
+      <div class="skill-bar"><div class="skill-progress motor">93%</div></div>
 
       <h3>Battery Management Systems (BMS)</h3>
-      <ul>
-        <li>Battery Expertise: 8S, 16S, 20S NMC/LFP packs, CC-CV charging, cell balancing, OCV/SoC/SoH monitoring, temperature management.</li>
-        <li>Protocols: SPI (daisy-chain), UART, CAN, LIN, BLE, Wi-Fi for BMS & MCU interfacing.</li>
-        <li>Standards Compliance: ASIL-D, ISO 26262 for functional safety.</li>
-        <li>Firmware Features: Fault handling (OV, UV, OTP, OCP), bootloader programming, GUI-based firmware updates.</li>
-      </ul>
+      <div class="skill-bar"><div class="skill-progress bms">90%</div></div>
 
       <h3>Communication Protocols & Interfaces</h3>
-      <ul>
-        <li>UART, SPI, I2C, CAN, LIN, BLE, Wi-Fi, Modbus, peripheral integration.</li>
-      </ul>
+      <div class="skill-bar"><div class="skill-progress protocols">87%</div></div>
 
       <h3>Software Tools & Development</h3>
-      <ul>
-        <li>Embedded C, Python (for GUI/testing).</li>
-        <li>IDEs, emulators, debuggers, data loggers, GUI tools.</li>
-        <li>Project Management: Jira for sprint planning, task management, and tracking.</li>
-      </ul>
+      <div class="skill-bar"><div class="skill-progress tools">85%</div></div>
 
       <h3>Testing & Validation</h3>
+      <div class="skill-bar"><div class="skill-progress testing">89%</div></div>
+    </div>
+
+    <!-- Patents -->
+    <h2>Patents</h2>
+    <div class="patents">
       <ul>
-        <li>Hardware-in-the-loop testing, load simulation, real-time monitoring, data logging, algorithm validation, performance optimization.</li>
+        <li>Patent 1: Smart Battery Balancing Algorithm for EV Applications.</li>
+        <li>Patent 2: Advanced Fault Detection and Protection in High Voltage BMS.</li>
+        <li>Patent 3: Motor Control Optimization Using Adaptive PI Loops.</li>
       </ul>
     </div>
   </div>
@@ -235,6 +280,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
