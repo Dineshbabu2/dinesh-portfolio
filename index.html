@@ -112,7 +112,7 @@
       flex-direction: column;
       justify-content: flex-start;
       z-index: 1;
-      overflow: hidden;
+      /* overflow removed so tooltip can expand */
     }
 
     .project-card:hover {
@@ -129,10 +129,10 @@
       position: absolute;
       top: 100%;
       left: 0;
-      width: 320px;
+      width: 300px;
       background: #ffffff;
       color: #333;
-      padding: 15px;
+      padding: 10px;
       border-radius: 8px;
       text-align: left;
       font-size: 0.9rem;
@@ -142,7 +142,7 @@
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
-      z-index: 20;
+      z-index: 100; /* ensures tooltip above all cards */
     }
 
     .project-card:hover .tooltip {
@@ -251,6 +251,7 @@
     <section id="projects" class="slide">
       <h1>Projects</h1>
       <div class="projects-container">
+
         <!-- Project 1 -->
         <div class="project-card">
           <div class="project-number">Project #1</div>
@@ -313,6 +314,7 @@
             24V DC device controls elevator door opening with backup activation in case of main controller failure.
           </div>
         </div>
+
       </div>
     </section>
 
@@ -379,6 +381,7 @@
   </div>
 </body>
 </html>
+
 
 
 
