@@ -1,301 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinesh | Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f9;
-      color: #333;
-    }
+// src/App.jsx
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(to right, #2c3e50, #34495e);
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
-    .hero h1 {
-      font-size: 3em;
-      margin: 0;
-    }
-    .hero p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-
-    /* About Section */
-    .about {
-      background: #fff;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .about h2 {
-      color: #2c3e50;
-      margin-bottom: 20px;
-    }
-    .about p {
-      max-width: 800px;
-      margin: auto;
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-
-    /* Container */
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 20px auto;
-    }
-
-    h2 {
-      text-align: center;
-      margin: 30px 0 15px;
-      font-size: 1.8em;
-      color: #2c3e50;
-    }
-
-    /* Project Section */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
-    }
-
-    .project-card {
-      background: #fff;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-      width: 300px;
-      min-height: 100px;
-    }
-
-    .project-card:hover {
-      transform: scale(1.03);
-    }
-
-    .project-title {
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #34495e;
-    }
-
-    .tooltip {
-      position: relative;
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      font-size: 0.9em;
-      color: #555;
-    }
-
-    .project-card:hover .tooltip {
-      opacity: 1;
-      max-height: 500px;
-      margin-top: 10px;
-    }
-
-    /* Skills Section */
-    .skills {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-top: 30px;
-    }
-
-    .skills h3 {
-      margin-top: 15px;
-      color: #2c3e50;
-    }
-
-    .skill-bar {
-      background: #ecf0f1;
-      border-radius: 20px;
-      margin: 10px 0;
-      height: 20px;
-      width: 100%;
-      overflow: hidden;
-    }
-    .skill-progress {
-      height: 100%;
-      text-align: right;
-      padding-right: 10px;
-      color: white;
-      font-size: 0.8em;
-      line-height: 20px;
-    }
-    .embedded { width: 95%; background: #2980b9; }
-    .rtos { width: 90%; background: #27ae60; }
-    .debug { width: 92%; background: #8e44ad; }
-    .algorithm { width: 88%; background: #d35400; }
-    .motor { width: 93%; background: #16a085; }
-    .bms { width: 90%; background: #c0392b; }
-    .protocols { width: 87%; background: #2c3e50; }
-    .tools { width: 85%; background: #7f8c8d; }
-    .testing { width: 89%; background: #f39c12; }
-
-    /* Patents */
-    .patents {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-top: 30px;
-    }
-    .patents ul {
-      list-style: square;
-      margin-left: 20px;
-    }
-
-    footer {
-      background: #2c3e50;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 30px;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Dinesh Babu</h1>
-    <p>Embedded Software Engineer | BMS & Motor Control Specialist</p>
-    <p>Email: dinesh@example.com | Mobile: +91-9876543210</p>
-  </section>
-
-  <!-- About -->
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      Results-driven Embedded Software Engineer with 8+ years of expertise in Embedded Systems, 
-      Motor Control, and Battery Management Systems. Specialized in designing and developing 
-      robust firmware and real-time control algorithms for EVs, robotics, and industrial applications. 
-      Experienced in RTOS, low-level firmware, communication protocols, and safety-critical systems.
-    </p>
-  </section>
-
-  <div class="container">
-
-    <!-- Projects -->
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-card">
-        <div class="project-title">Project 1: 48V & 72V Battery Management System – EV Application</div>
-        <div class="tooltip">
-          Designed a safety-focused BMS for 16S and 20S NMC/LFP battery packs. Developed algorithms for cell balancing, CC-CV charging, SoC/SoH estimation, and fault handling.
+export default function App() {
+  return (
+    <div className="bg-gray-50 text-gray-800 font-sans">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20 text-center">
+        <h1 className="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
+        <h2 className="text-2xl font-semibold">
+          Embedded Software Engineer | Motor Control | BMS | Electric Vehicle | Robotics
+        </h2>
+        <div className="mt-6">
+          <p className="text-lg font-medium">DINESH BABU R</p>
+          <p>📧 <a href="mailto:rdineshdece@gmail.com" className="underline">rdineshdece@gmail.com</a></p>
+          <p>📱 +91 8122416549</p>
         </div>
-      </div>
+      </section>
 
-      <div class="project-card">
-        <div class="project-title">Project 2: Motor Control – PMSM FOC Drive</div>
-        <div class="tooltip">
-          Implemented FOC for PMSM motors with torque/speed regulation, regenerative braking, field weakening, and protection features.
-        </div>
-      </div>
+      {/* About Section */}
+      <section className="py-16 px-6 max-w-5xl mx-auto">
+        <h2 className="text-3xl font-bold mb-6 text-center">About Me</h2>
+        <p className="text-lg leading-relaxed text-gray-700 text-justify">
+          Senior Embedded Software Engineer – Motor Control | BMS | EV | Robotics
+          <br /><br />
+          Results-driven Embedded Software Engineer with 8+ years of experience in the design,
+          development, validation, and deployment of embedded systems, from requirements gathering
+          to production and commercial deployment. Specialized in Motor Control and Battery
+          Management Systems (BMS) for EVs, Robotics, and Consumer Electronics.
+          <br /><br />
+          Hands-on expertise in 8/16/32-bit Microcontrollers and Microprocessors, with strong skills
+          in Embedded C and low-level driver development. Proficient in embedded development tools
+          (IDEs, emulators) and adept at debugging real-time problems.
+          <br /><br />
+          Skilled in communication protocol integration SPI, I2C, UART, CAN, LIN, BLE, and Wi-Fi.
+          Experienced in RTOS-based and bare-metal firmware development, including algorithm
+          implementation, application development, and hardware board bring-up.
+          <br /><br />
+          Proficient in handling lab equipment such as Oscilloscopes, digital multimeters, DC
+          voltage sources, electronic loads, function generators, and other testing instruments for
+          debugging, validation, and hardware bring-up.
+        </p>
+      </section>
 
-      <div class="project-card">
-        <div class="project-title">Project 3: Bootloader Development</div>
-        <div class="tooltip">
-          Developed UART/CAN-based bootloader for in-field firmware updates with robust error handling and GUI integration.
+      {/* Skills Section */}
+      <section className="py-16 px-6 bg-gray-100">
+        <h2 className="text-3xl font-bold mb-10 text-center">Skills</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {[
+            { name: "Embedded C", value: 95 },
+            { name: "Motor Control Algorithms", value: 90 },
+            { name: "Battery Management Systems", value: 92 },
+            { name: "RTOS (FreeRTOS)", value: 88 },
+            { name: "UART / SPI / I2C / CAN / LIN", value: 94 },
+            { name: "BLE / Wi-Fi / Modbus", value: 85 },
+            { name: "Python (Testing & Tools)", value: 80 },
+            { name: "Debugging & Validation", value: 93 },
+          ].map((skill, idx) => (
+            <Card key={idx} className="shadow-md">
+              <CardContent className="p-6">
+                <p className="font-semibold mb-2">{skill.name}</p>
+                <Progress value={skill.value} className="h-3 rounded-full" />
+                <p className="text-sm text-gray-500 mt-1">{skill.value}%</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </div>
+      </section>
 
-      <div class="project-card">
-        <div class="project-title">Project 4: GUI for BMS</div>
-        <div class="tooltip">
-          Built a Python GUI for real-time BMS monitoring, including cell voltages, pack voltage, temperatures, and balancing status.
-        </div>
-      </div>
+      {/* Patent Section */}
+      <section className="py-16 px-6 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold mb-6 text-center">Patent</h2>
+        <Card className="shadow-lg">
+          <CardContent className="p-6">
+            <h3 className="text-xl font-semibold mb-2">
+              Speed Command System for BLDC Motor-based Ceiling Fan using Wall Mounted Universal Capacitive Step Type Fan Regulator
+            </h3>
+            <p className="text-gray-700 mb-2">
+              <strong>Patent Application No:</strong> 201941042375
+            </p>
+            <a
+              href="https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              View Patent Application
+            </a>
+          </CardContent>
+        </Card>
+      </section>
 
-      <div class="project-card">
-        <div class="project-title">Project 5: Charger Communication</div>
-        <div class="tooltip">
-          Integrated CAN-based communication between BMS and EV charger. Controlled CC-CV charging with safety cutoffs.
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-title">Project 6: Robotics Battery Management</div>
-        <div class="tooltip">
-          Designed a compact BMS for robotic applications with lightweight PCB, efficient balancing, and high safety reliability.
-        </div>
-      </div>
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-6 text-center">
+        <p>© {new Date().getFullYear()} Dinesh Babu R. All rights reserved.</p>
+      </footer>
     </div>
-
-    <!-- Skills -->
-    <h2>Core Embedded Systems Skills</h2>
-    <div class="skills">
-      <h3>Embedded C & Low-Level Firmware Development</h3>
-      <div class="skill-bar"><div class="skill-progress embedded">95%</div></div>
-
-      <h3>RTOS & Task Management</h3>
-      <div class="skill-bar"><div class="skill-progress rtos">90%</div></div>
-
-      <h3>Hardware Bring-up & Board-Level Debugging</h3>
-      <div class="skill-bar"><div class="skill-progress debug">92%</div></div>
-
-      <h3>Algorithm Implementation</h3>
-      <div class="skill-bar"><div class="skill-progress algorithm">88%</div></div>
-
-      <h3>Motor Control & Power Electronics</h3>
-      <div class="skill-bar"><div class="skill-progress motor">93%</div></div>
-
-      <h3>Battery Management Systems (BMS)</h3>
-      <div class="skill-bar"><div class="skill-progress bms">90%</div></div>
-
-      <h3>Communication Protocols & Interfaces</h3>
-      <div class="skill-bar"><div class="skill-progress protocols">87%</div></div>
-
-      <h3>Software Tools & Development</h3>
-      <div class="skill-bar"><div class="skill-progress tools">85%</div></div>
-
-      <h3>Testing & Validation</h3>
-      <div class="skill-bar"><div class="skill-progress testing">89%</div></div>
-    </div>
-
-    <!-- Patents -->
-    <h2>Patents</h2>
-    <div class="patents">
-      <ul>
-        <li>Patent 1: Smart Battery Balancing Algorithm for EV Applications.</li>
-        <li>Patent 2: Advanced Fault Detection and Protection in High Voltage BMS.</li>
-        <li>Patent 3: Motor Control Optimization Using Adaptive PI Loops.</li>
-      </ul>
-    </div>
-  </div>
-
-  <footer>
-    <p>© 2025 Dinesh Babu | Embedded Systems Portfolio</p>
-  </footer>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  );
+}
