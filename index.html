@@ -57,6 +57,16 @@
     #about h2 { font-size: 1.2rem; font-weight: normal; margin: 8px 0; }
     #about p { font-size: 1rem; line-height: 1.6; margin: 12px 0; max-width: 900px; }
 
+    /* Ensure email and phone are visible */
+    #about a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #about a:hover {
+      text-decoration: underline;
+    }
+
     /* Patent */
     #patent {
       background-color: #007bff;
@@ -335,73 +345,71 @@
       </div>
     </section>
 
-    <!-- Skills -->
+    <!-- Core Skills -->
     <section id="core-skills" class="slide">
-      <h1>Core Embedded Skills</h1>
+      <h1>Core Embedded Systems Skills</h1>
       <div class="skills-graphics">
+        <!-- Embedded & RTOS -->
         <div class="skill-card">
-          <h2>Embedded Systems</h2>
+          <h2>Embedded C & Low-Level Firmware</h2>
           <ul>
-            <li>Embedded C & Low-Level Firmware Development</li>
-            <li>RTOS & Task Management</li>
-            <li>Hardware Bring-up & Board-Level Debugging</li>
-            <li>Algorithm Implementation (BLDC, FOC, PI loops)</li>
+            <li>Bare-metal & RTOS-based firmware</li>
+            <li>8/16/32-bit MCUs & microprocessors</li>
           </ul>
-          <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
         </div>
+
+        <div class="skill-card">
+          <h2>RTOS & Task Management</h2>
+          <ul>
+            <li>FreeRTOS task scheduling</li>
+            <li>Inter-task communication & synchronization</li>
+            <li>Real-time debugging</li>
+          </ul>
+        </div>
+
+        <!-- Hardware & Algorithm -->
+        <div class="skill-card">
+          <h2>Hardware Bring-up & Debugging</h2>
+          <ul>
+            <li>Oscilloscopes, multimeters, DC power, loads, function generators</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h2>Algorithm Implementation</h2>
+          <ul>
+            <li>Sensorless/sensored BLDC, FOC, trapezoidal control</li>
+            <li>Field weakening, MPPT, PI loops, SoC/SoH, fault detection</li>
+          </ul>
+        </div>
+
+        <!-- Motor & BMS -->
         <div class="skill-card">
           <h2>Motor Control & Power Electronics</h2>
           <ul>
-            <li>Motor Types: BLDC, PMSM</li>
-            <li>Motor Control Techniques: FOC, Trapezoidal</li>
-            <li>Control Features: Overcurrent, OV/UV Protection</li>
-            <li>EV Applications: E-bikes, PMSM drives</li>
+            <li>BLDC, PMSM, low/high voltage DC motors</li>
+            <li>FOC, trapezoidal, sensored & sensorless, PWM optimization</li>
+            <li>Protection & EV applications</li>
           </ul>
-          <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
         </div>
+
         <div class="skill-card">
           <h2>Battery Management Systems (BMS)</h2>
           <ul>
-            <li>Battery Expertise: 8S/16S/20S packs, CC-CV</li>
-            <li>Protocols: SPI, UART, CAN, LIN, BLE, Wi-Fi</li>
-            <li>Standards: ASIL-D, ISO 26262</li>
-            <li>Firmware: Fault Handling, Bootloader, GUI Updates</li>
+            <li>8S/16S/20S NMC/LFP packs</li>
+            <li>CC-CV charging, cell balancing, SoC/SoH monitoring</li>
+            <li>SPI/ UART/ CAN/ LIN/ BLE/ Wi-Fi protocols</li>
+            <li>ASIL-D, ISO 26262 compliance</li>
           </ul>
-          <div class="skill-bar"><div class="skill-fill" style="width: 92%;"></div></div>
         </div>
-        <div class="skill-card">
-          <h2>Communication Protocols & Interfaces</h2>
-          <ul>
-            <li>Serial Interfaces: UART, SPI, I2C, CAN, LIN</li>
-            <li>Wireless & IoT: BLE, Wi-Fi, Modbus</li>
-            <li>Peripheral Integration: Sensors, MCU-to-MCU, VCU</li>
-          </ul>
-          <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
-        </div>
-        <div class="skill-card">
-          <h2>Software Tools & Development</h2>
-          <ul>
-            <li>Programming Languages: Embedded C, Python</li>
-            <li>Development Tools: IDEs, Debuggers, Data Loggers</li>
-            <li>Project Management: Jira</li>
-          </ul>
-          <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
-        </div>
-        <div class="skill-card">
-          <h2>Additional Skills</h2>
-          <ul>
-            <li>Documentation & Reporting</li>
-            <li>Team Collaboration</li>
-            <li>Testing & Validation</li>
-          </ul>
-          <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
-        </div>
+
       </div>
     </section>
 
   </div>
 </body>
 </html>
+
 
 
 
