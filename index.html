@@ -74,10 +74,11 @@
       color: #333;
       text-align: center;
       justify-content: flex-start;
-      padding: 60px 5%; /* Adjusted padding for top */
-      margin-top: 20px; /* Ensure there's space between sections */
+      padding: 60px 5%;
+      margin-top: 20px;
     }
     #projects h1 { text-align: center; margin-bottom: 30px; }
+
     .projects-container {
       display: flex;
       flex-wrap: wrap;
@@ -85,7 +86,7 @@
       justify-content: center;
       margin-top: 30px;
     }
-    
+
     .project-card {
       background: #007bff;
       color: #fff;
@@ -95,15 +96,15 @@
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
-      overflow: hidden; 
-      min-width: 250px;  /* Ensure a minimum width */
-      max-width: 300px;  /* Added max-width for better structure */
-      margin-bottom: 20px; /* Adds spacing between project cards */
+      min-width: 250px;
+      max-width: 300px;
+      margin-bottom: 20px;
     }
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.35);
     }
+
     .project-number {
       font-weight: bold;
       font-size: 1rem;
@@ -119,6 +120,7 @@
       opacity: 0.85;
     }
 
+    /* Tooltip inside each project card */
     .project-card .tooltip {
       max-height: 0;
       opacity: 0;
@@ -129,18 +131,18 @@
       font-size: 0.9rem;
       line-height: 1.4;
     }
-  
+
     .project-card:hover .tooltip {
-      max-height: 400px; /* enough to show full description */
+      max-height: 500px; /* Adjust height for long descriptions */
       opacity: 1;
     }
-    
+
     /* Skills */
     #skills {
       background-color: white;
       color: #333;
       text-align: center;
-      padding: 60px 0; /* Separate skills section */
+      padding: 60px 0;
     }
     .skills-grid {
       display: grid;
@@ -263,43 +265,6 @@
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-number">Project #4</div>
-          <div class="project-title">250W BLDC Motor Controller</div>
-          <div class="project-role">Role: Project lead</div>
-          <div class="tooltip">
-            The 36V DC driver powers and controls low-voltage BLDC hub motors commonly used in 
-            e-bikes for their efficiency and reliability. Sensored Field-Oriented Control (FOC) and 
-            Trapezoidal BLDC algorithms are key motor control techniques that optimize power delivery 
-            and enhance motor performance in e-bikes.
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-number">Project #5</div>
-          <div class="project-title">Low and High Voltage BLDC Ceiling Fan</div>
-          <div class="project-role">Role: Firmware Engineer</div>
-          <div class="tooltip">
-            Designed a low-cost 24V PMSM drive powered by a 230V AC driver using single, two, and 
-            three-shunt current control with FOC algorithm. Implemented field weakening, MPPT, and 
-            three-layer PI loops for smooth and efficient operation. Added high current injection for 
-            startup, NEC IR control, and BLE/Wi-Fi (Modbus) for remote speed management. Enabled BLDC 
-            speed control via capacitor-type fan regulators with step change and position detection, 
-            overcoming fixed SMPS voltage limitations. Developed a high-voltage ceiling fan system using 
-            a 90–440V AC driver to run sensored and sensorless HV-BLDC motors with single-shunt control. 
-            Delivered high-performance, cost-effective solutions for the Indian market.
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-number">Project #6</div>
-          <div class="project-title">Door Open Timer</div>
-          <div class="project-role">Role: Firmware Engineer</div>
-          <div class="tooltip">
-            Developed a 24V DC device to control elevator door opening within a set time after floor
-            arrival. Designed as a backup to activate the door if the main lift control board fails.
-          </div>
-        </div>
       </div>
     </section>
 
@@ -321,6 +286,7 @@
   </div>
 </body>
 </html>
+
 
 
 
