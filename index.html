@@ -62,7 +62,6 @@
       text-decoration: none;
     }
     #about .contact-info a:hover { text-decoration: underline; }
-
     #about p { font-size: 1rem; line-height: 1.6; margin: 12px 0; max-width: 900px; }
 
     /* Patent */
@@ -74,16 +73,8 @@
     }
     #patent a { color: #ffffff; text-decoration: underline; }
 
-    /* Projects */
-    #projects {
-      background-color: #f5f5f5;
-      color: #333;
-      text-align: center;
-      padding: 60px 5%;
-    }
-    #projects h1 { text-align: center; margin-bottom: 30px; }
-
-    .projects-container {
+    /* Projects & Skills Shared Style */
+    .cards-container {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
@@ -91,7 +82,7 @@
       position: relative;
     }
 
-    .project-card {
+    .info-card {
       background: #007bff;
       color: #fff;
       padding: 10px;
@@ -100,25 +91,24 @@
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
-      width: 300px;  
-      height: 100px;  
+      width: 300px;
+      height: 100px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       z-index: 1;
     }
 
-    .project-card:hover {
+    .info-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.35);
       z-index: 10;
     }
 
-    .project-number { font-weight: bold; font-size: 1rem; opacity: 0.85; }
-    .project-title { font-size: 1.1rem; margin: 5px 0; font-weight: 600; }
-    .project-role { font-size: 0.9rem; opacity: 0.85; }
+    .info-title { font-size: 1.1rem; margin: 5px 0; font-weight: 600; }
+    .info-role { font-size: 0.9rem; opacity: 0.9; }
 
-    .project-card .tooltip {
+    .info-card .tooltip {
       position: absolute;
       top: 100%;
       left: 0;
@@ -138,61 +128,20 @@
       z-index: 100;
     }
 
-    .project-card:hover .tooltip {
+    .info-card:hover .tooltip {
       opacity: 1;
       max-height: 500px;
     }
 
-    /* Core Skills */
-    #core-skills {
-      background-color: white;
+    /* Sections */
+    #projects, #core-skills {
+      background-color: #f5f5f5;
       color: #333;
       text-align: center;
       padding: 60px 5%;
     }
 
-    .skills-graphics {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: auto;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .skill-card {
-      padding: 20px;
-      border-radius: 12px;
-      border: 2px solid #007bff;
-      text-align: left;
-      background: #f9f9f9;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .skill-card h2 {
-      color: #007bff;
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .skill-card ul {
-      list-style: disc inside;
-      padding-left: 0;
-      margin: 0;
-    }
-
-    .skill-icon {
-      width: 18px;
-      height: 18px;
-      background-color: #007bff;
-      border-radius: 50%;
-      display: inline-block;
-    }
+    #projects h1, #core-skills h1 { margin-bottom: 30px; }
   </style>
 </head>
 <body>
@@ -252,64 +201,53 @@
     <!-- Projects -->
     <section id="projects" class="slide">
       <h1>Projects</h1>
-      <div class="projects-container">
-        <!-- Project 1 -->
-        <div class="project-card">
-          <div class="project-number">Project #1</div>
-          <div class="project-title">48V & 72V BMS – EV Application</div>
-          <div class="project-role">Role: Project lead</div>
+      <div class="cards-container">
+        <div class="info-card">
+          <div class="info-title">Project #1: 48V & 72V BMS – EV</div>
+          <div class="info-role">Role: Project lead</div>
           <div class="tooltip">
-            Designed a safety-focused BMS for 16S & 20S NMC/LFP battery packs with OCV, Coulomb Counting-based SoC/SoH, cell balancing, and temperature measurement. Implemented fault handling for OV, UV, OTP, OCP. SPI daisy-chain & multi-protocol support (CAN, LIN, UART, SPI). ASIL-D & ISO 26262 compliant. UART bootloader & Python GUI.
+            Designed a safety-focused BMS for 16S & 20S NMC/LFP packs, with SoC/SoH, balancing, 
+            temp monitoring, OV/UV/OTP/OCP protections, SPI daisy-chain, CAN, LIN, UART.
           </div>
         </div>
 
-        <!-- Project 2 -->
-        <div class="project-card">
-          <div class="project-number">Project #2</div>
-          <div class="project-title">24V & 48V BMS – Robotics</div>
-          <div class="project-role">Role: Project lead</div>
+        <div class="info-card">
+          <div class="info-title">Project #2: 24V & 48V BMS – Robotics</div>
+          <div class="info-role">Role: Project lead</div>
           <div class="tooltip">
-            BMS for 8S & 16S NMC/LFP packs with OCV & Coulomb Counting SoC/SoH, cell balancing, temperature measurement. OV, UV, OTP, OCP fault handling.
+            BMS for 8S & 16S packs with SoC/SoH, balancing, temperature, OV/UV/OTP/OCP handling.
           </div>
         </div>
 
-        <!-- Project 3 -->
-        <div class="project-card">
-          <div class="project-number">Project #3</div>
-          <div class="project-title">1kW & 3kW BLDC Motor Controller – EV</div>
-          <div class="project-role">Role: Project lead</div>
+        <div class="info-card">
+          <div class="info-title">Project #3: 1kW & 3kW BLDC Controller</div>
+          <div class="info-role">Role: Project lead</div>
           <div class="tooltip">
-            Bare-metal BLDC motor controller, HAL-based sensored control, FOC & trapezoidal, optimized PWM, overcurrent, overtemperature, undervoltage protections. UART diagnostics & CAN for BMS/VCU.
+            Bare-metal BLDC controller, sensored control, FOC & trapezoidal, protections, CAN.
           </div>
         </div>
 
-        <!-- Project 4 -->
-        <div class="project-card">
-          <div class="project-number">Project #4</div>
-          <div class="project-title">250W BLDC Motor Controller</div>
-          <div class="project-role">Role: Project lead</div>
+        <div class="info-card">
+          <div class="info-title">Project #4: 250W BLDC Controller</div>
+          <div class="info-role">Role: Project lead</div>
           <div class="tooltip">
-            36V DC driver for e-bikes, sensored FOC & trapezoidal algorithms, optimized for efficiency & reliability.
+            36V e-bike controller, FOC & trapezoidal, optimized for efficiency & reliability.
           </div>
         </div>
 
-        <!-- Project 5 -->
-        <div class="project-card">
-          <div class="project-number">Project #5</div>
-          <div class="project-title">Low & High Voltage BLDC Ceiling Fan</div>
-          <div class="project-role">Role: Firmware Engineer</div>
+        <div class="info-card">
+          <div class="info-title">Project #5: Low & High Voltage BLDC Fan</div>
+          <div class="info-role">Role: Firmware Engineer</div>
           <div class="tooltip">
-            24V PMSM drive with FOC, field weakening, MPPT, PI loops, high-voltage BLDC with NEC IR control, BLE/Wi-Fi, and capacitor-type fan speed control.
+            24V PMSM FOC, field weakening, MPPT, PI loops, high-voltage BLDC with BLE/Wi-Fi.
           </div>
         </div>
 
-        <!-- Project 6 -->
-        <div class="project-card">
-          <div class="project-number">Project #6</div>
-          <div class="project-title">Door Open Timer</div>
-          <div class="project-role">Role: Firmware Engineer</div>
+        <div class="info-card">
+          <div class="info-title">Project #6: Door Open Timer</div>
+          <div class="info-role">Role: Firmware Engineer</div>
           <div class="tooltip">
-            24V DC device to control elevator door opening within a set time after floor arrival. Acts as a backup if main lift board fails.
+            24V DC device for elevator doors, backup safety if lift board fails.
           </div>
         </div>
       </div>
@@ -317,83 +255,63 @@
 
     <!-- Core Skills -->
     <section id="core-skills" class="slide">
-      <h1>Core Embedded Systems Skills</h1>
-      <div class="skills-graphics">
+      <h1>Skills</h1>
+      <div class="cards-container">
 
-        <div class="skill-card">
-          <h2><span class="skill-icon"></span> Embedded C & Low-Level Firmware</h2>
-          <ul>
-            <li>Strong experience in bare-metal and RTOS-based firmware for 8/16/32-bit microcontrollers and microprocessors.</li>
-            <li>Low-level driver development</li>
-          </ul>
+        <div class="info-card">
+          <div class="info-title">Embedded C & Firmware</div>
+          <div class="info-role">Core Programming</div>
+          <div class="tooltip">
+            Bare-metal & RTOS-based firmware, 8/16/32-bit MCU/MPU, low-level driver development.
+          </div>
         </div>
 
-        <div class="skill-card">
-          <h2><span class="skill-icon"></span> RTOS & Task Management</h2>
-          <ul>
-            <li>FreeRTOS/RTOS scheduling</li>
-            <li>Inter-task communication & synchronization</li>
-            <li>Real-time debugging</li>
-          </ul>
+        <div class="info-card">
+          <div class="info-title">RTOS & Task Management</div>
+          <div class="info-role">FreeRTOS, Scheduling</div>
+          <div class="tooltip">
+            Multitasking, inter-task communication, synchronization, and real-time debugging.
+          </div>
         </div>
 
-        <div class="skill-card">
-          <h2><span class="skill-icon"></span> Hardware Bring-up & Board Debugging</h2>
-          <ul>
-            <li>Hands-on testing with oscilloscopes, digital multimeters, DC power supplies, electronic loads, and function generators.</li>
-          </ul>
+        <div class="info-card">
+          <div class="info-title">Motor Control & Power Electronics</div>
+          <div class="info-role">FOC, BLDC, PMSM</div>
+          <div class="tooltip">
+            FOC, trapezoidal, PWM optimization, protections, torque/speed regulation, EV robotics.
+          </div>
         </div>
 
-        <div class="skill-card">
-          <h2><span class="skill-icon"></span> Algorithm Implementation</h2>
-          <ul>
-            <li>Sensorless/sensored BLDC, FOC, trapezoidal control, field weakening, MPPT, PI control loops, SoC/SoH calculation, fault detection</li>
-          </ul>
+        <div class="info-card">
+          <div class="info-title">Battery Management Systems</div>
+          <div class="info-role">EV, Robotics</div>
+          <div class="tooltip">
+            8S–20S packs, SoC/SoH, balancing, SPI daisy-chain, CAN, LIN, BLE, Wi-Fi, ASIL-D.
+          </div>
         </div>
 
-        <div class="skill-card">
-          <h2><span class="skill-icon"></span> Motor Control & Power Electronics</h2>
-          <ul>
-            <li>Motor Types: BLDC, PMSM, low/high voltage DC motors</li>
-            <li>FOC, trapezoidal, sensored & sensorless control, PWM optimization, commutation strategies</li>
-            <li>Control Features: Overcurrent, overvoltage, undervoltage, overtemperature protections, smooth startup, speed/torque regulation, smart speed control</li>
-            <li>EV Applications: PMSM drives, BLDC controllers, servo motor drives, e-bike & robotics applications</li>
-          </ul>
+        <div class="info-card">
+          <div class="info-title">Communication Protocols</div>
+          <div class="info-role">UART, SPI, CAN, etc.</div>
+          <div class="tooltip">
+            UART, SPI, I2C, CAN, LIN, BLE, Wi-Fi, Modbus, peripheral integration.
+          </div>
         </div>
 
-        <div class="skill-card">
-          <h2><span class="skill-icon"></span> Battery Management Systems (BMS)</h2>
-          <ul>
-            <li>Battery Expertise: 8S, 16S, 20S NMC/LFP battery packs, CC-CV charging, cell balancing, OCV/SoC/SoH monitoring, temperature management</li>
-            <li>Protocols & Communication: SPI (daisy-chain), UART, CAN, LIN, BLE, Wi-Fi for BMS & MCU interfacing</li>
-            <li>Standards Compliance: ASIL-D, ISO 26262 for functional safety in automotive/EV applications</li>
-            <li>Firmware Features: Fault handling (OV, UV, OTP, OCP), bootloader programming, GUI-based firmware updates</li>
-          </ul>
+        <div class="info-card">
+          <div class="info-title">Software Tools</div>
+          <div class="info-role">Development & Debug</div>
+          <div class="tooltip">
+            Embedded C, Python, IDEs, emulators, debuggers, GUI validation tools, Jira.
+          </div>
         </div>
 
-        <!-- New separate skill cards -->
-        <div class="skill-card">
-          <h2><span class="skill-icon"></span> Communication Protocols & Interfaces</h2>
-          <ul>
-            <li>UART, SPI, I2C, CAN, LIN, BLE, Wi-Fi, Modbus, peripheral integration</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <h2><span class="skill-icon"></span> Software Tools & Development</h2>
-          <ul>
-            <li>Embedded C, Python</li>
-            <li>IDEs, emulators, debuggers, data loggers, GUI tools for validation and performance monitoring</li>
-            <li>Project Management: Jira</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <h2><span class="skill-icon"></span> Testing & Validation</h2>
-          <ul>
-            <li>Hardware-in-the-loop testing, load simulation, real-time monitoring</li>
-            <li>Data logging, algorithm validation, performance optimization</li>
-          </ul>
+        <div class="info-card">
+          <div class="info-title">Testing & Validation</div>
+          <div class="info-role">HIL & Simulation</div>
+          <div class="tooltip">
+            Hardware-in-the-loop testing, load simulation, real-time monitoring, optimization.
+          </div>
         </div>
 
       </div>
@@ -402,3 +320,4 @@
   </div>
 </body>
 </html>
+
