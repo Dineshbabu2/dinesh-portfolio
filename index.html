@@ -74,10 +74,8 @@
       color: #333;
       text-align: center;
       justify-content: flex-start;
-      padding-top: 60px;
-      padding-left: 5%;
-      padding-right: 5%;
-      margin-top: 20px; /* Add margin to prevent overlap */
+      padding: 60px 5%; /* Adjusted padding for top */
+      margin-top: 20px; /* Ensure there's space between sections */
     }
     #projects h1 { text-align: center; margin-bottom: 30px; }
     .projects-container {
@@ -97,8 +95,10 @@
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
-      overflow: hidden; /* prevents overflow */
-      min-width: 250px; /* A minimum width to help layout */
+      overflow: hidden; 
+      min-width: 250px;  /* Ensure a minimum width */
+      max-width: 300px;  /* Added max-width for better structure */
+      margin-bottom: 20px; /* Adds spacing between project cards */
     }
     .project-card:hover {
       transform: translateY(-8px);
@@ -140,7 +140,7 @@
       background-color: white;
       color: #333;
       text-align: center;
-      padding: 60px 0; /* Add padding to avoid overlap */
+      padding: 60px 0; /* Separate skills section */
     }
     .skills-grid {
       display: grid;
